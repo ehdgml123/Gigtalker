@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout1}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link th:href="@{/css/editInformation.css}" rel="stylesheet">
+</head>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const saveButton = document.getElementById('saveButton');
+    saveButton.addEventListener('click', function (e) {
+      const newPassword = document.getElementById('newPassword').value.trim();
+      const confirmPassword = document.getElementById('confirmPassword').value.trim();
+
+      if (!newPassword || !confirmPassword) {
+        alert('모든 비밀번호 필드를 입력해주세요.');
+        e.preventDefault();
+        return;
+      }
+
+      if (newPassword !== confirmPassword) {
+        alert('새 비밀번호와 확인 비밀번호가 일치하지 않습니다.');
+        e.preventDefault();
+      }
+    });
+  });
+
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const inputs = document.querySelectorAll('.my-info-edit input');
+    const saveButton = document.getElementById('saveButton');
+
+    function checkInputs() {
+      let anyInputFilled = false;
+
+      inputs.forEach(function (input) {
+        if (input.hasAttribute('readonly')) {
+          return;
+        }
+        if (input.value.trim() !== '') {
+          anyInputFilled = true;
+        }
+      });
+
+      if (anyInputFilled) {
+        saveButton.disabled = false;
+        saveButton.classList.add('enabled');
+      } else {
+        saveButton.disabled = true;
+        saveButton.classList.remove('enabled');
+      }
+    }
+
+    inputs.forEach(function (input) {
+      input.addEventListener('input', checkInputs);
+    });
+
+    // 초기 상태 체크
+    checkInputs();
+  });
+</script>
+<body>
+<div class="content account-set-wrap"  layout:fragment="content">
+  <div class="container">
+    <div class="sc-sidebar">
+      <h4>계정 설정</h4>
+      <ul class="sc-menu">
+        <li id="modify-my-information" class="">
+          <a href="#" aria-current="page" class="router-link-active router-link-exact-active">
+            내정보 수정
+          </a>
+        </li>
+        <li id="membership-withdrawal">
+          <a href="#" aria-current="page" class="router-link-active router-link-exact-active">
+            회원탈퇴
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="acset-content">
+      <h1>내 정보 수정
+        <span>
+        공개 프로필을 업데이트해야 합니까?
+        <a href="#">내 프로필 이동</a>
+      </span>
+      </h1>
+      <div class="my-info-edit">
+        <form method="post" th:action="@{/EditInformation}" th:object="${user}">
+          <input type="hidden" th:field="*{id}" />
+        <div class="input-group mn">
+          <label for="nickname">성명</label>
+          <div class="input-area flex-wrap">
+            <div class="input-area">
+              <input type="text" id="nickname" th:field="*{name}" placeholder="이름을 입력하세요">
+            </div>
+          </div>
+        </div>
+        <div class="input-group mn">
+          <label for="userEmail">이메일</label>
+          <div class="input-area flex-wrap">
+            <div class="input-area">
+              <input type="text" id="userEmail" th:field="*{email}" readonly>
+            </div>
+            <p>* 이메일을 변경하시려면 고객센터로 문의해주세요.</p>
+          </div>
+        </div>
+        <div class="input-group mn">
+          <label for="userPhone">휴대폰 번호</label>
+          <div class="input-area flex-wrap">
+            <div class="input-area">
+              <input type="text" id="userPhone" th:field="*{phone}" placeholder="휴대폰 번호를 입력하세요">
+            </div>
+          </div>
+        </div>
+          <!-- 새 비밀번호 -->
+          <div class="input-group mn">
+            <label for="newPassword">새 비밀번호</label>
+            <div class="input-area flex-wrap">
+              <div class="input-area">
+                <input type="password" id="newPassword" name="newPassword" placeholder="새 비밀번호를 입력하세요" required>
+              </div>
+            </div>
+          </div>
+
+          <!-- 새 비밀번호 확인 -->
+          <div class="input-group mn">
+            <label for="confirmPassword">새 비밀번호 확인</label>
+            <div class="input-area flex-wrap">
+              <div class="input-area">
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="새 비밀번호를 다시 입력하세요" required>
+              </div>
+            </div>
+          </div>
+        <div class="btn-group">
+          <button type="submit" id="saveButton" class="btn btn-primary btn-md" >변경사항 저장</button>
+        </div>
+         </form>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

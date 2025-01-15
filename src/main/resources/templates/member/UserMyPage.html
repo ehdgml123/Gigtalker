@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout1}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link th:href="@{/css/UserMyPage.css}" rel="stylesheet">
+</head>
+<body>
+<div class="container-A" layout:fragment="content">
+  <div class="content mypage">
+    <div class="container">
+      <aside class="cs-sidedar">
+        <div class="mypage-profile">
+          <div class="mypage-profile-top">
+            <p>
+              내 프로필
+              <a aria-current="page" href="/EditInformation" class="router-link-active router-link-exact-active">수정하기</a>
+            </p>
+          </div>
+          <h5 th:text="${userName}"></h5>
+          <a href="/expert/main">
+            <button type="button" class="btn btn-primary">전문가 센터로 이동</button>
+          </a>
+        </div>
+        <h5>마이페이지</h5>
+        <ul class="sc-menu">
+          <li id="custom-orders" class="active">
+            <a aria-current="page"  href="#" class="router-link-active router-link-exact-active">
+              맞춤주문내역
+            </a>
+          </li>
+          <li id="order-management">
+            <a href="/order-management"> 구매관리</a>
+          </li>
+          <li id="my-review">
+            <a href="/my-review">
+            내가 쓴 구매후기
+            </a>
+          </li>
+          <li id="pay-history">
+            <a href="/pay-history">결재내역</a>
+          </li>
+          <li id="received-coupon">
+            <a th:href="@{/mycoupon}">받은쿠폰함</a>
+          </li>
+        </ul>
+      </aside>
+      <div class="mypage-content">
+        <div class="ec-sell-set">
+          <h1>맞춤 주문내역</h1>
+          <div class="ec-sell-top">
+            <div class="dropdown-group">
+              <div class="dropdown-list-wrap">
+                <button class="dropdown-button" data-th-target="drop2">
+                  전체
+                </button>
+          <!--      <ul id="drop2" class="dropdown-list">
+                  <li>전체</li>
+                  <li>1개월내</li>
+                  <li>3개월내</li>
+                  <li>6개월내</li>
+                  <li>1년내</li>
+                  <li>2년내</li>
+                </ul>-->
+              </div>
+            </div>
+            <div class="input-group mn">
+                <input type="text" placeholder="제목">
+            </div>
+            <button type="button" class="btn btn-black">검색</button>
+          </div>
+          <div class="ec-sell-body">
+            <ul class="order-details-list">
+              <li>
+                <div class="mp-review-item-none">
+                  <p>맞춤 주문 내역이 없습니다.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+:root {
+    --dropdown-placeholder: "Select an option";
+    --gt-info: #10A9FF;
+    --gt-success: #32C771;
+    --gt-warning: #FF9659;
+    --gt-error: #EB5757;
+    --gt-primary: #3B00CC;
+    --gt-secondary: #7B78FF;
+    --gt-write: #ffffff;
+    --gt-black-01: #000000;
+    --gt-black-02: #1D1D1D;
+    --gt-black-03: #282828;
+    --gt-gray-01: #333333;
+    --gt-gray-02: #4f4f4f;
+    --gt-gray-03: #828282;
+    --gt-gray-04: #bdbdbd;
+    --gt-gray-05: #e0e0e0;
+    --gt-gray-06: #f0f0f0;
+    --gt-gray-07: #f5f5f5;
+    --gt-gray-08: #FAFAFA;
+    --gt-primary-bg: #F4F3FD;
+    --gt-gray-bg: #F7F7FA;
+    --gt-sky-bg: #ECF5FB;
+    --gt-body-font-size: 16px;
+    --gt-body-font-weight: 400;
+    --gt-font-sans-serif: "NotoSansKR", sans-serif;
+    --gt-text-lg: 16px;
+    --gt-text-md: 14px;
+    --gt-text-sm: 13px;
+    --gt-text-mn: 12px;
+    --gt-shadow: 0px 4px 4px 0px rgba(0, 0, 0, .25);
+}
+
+
+
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+ul, li, ol{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+button {
+    align-items: center;
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    transition: .5s all;
+}
+
+.header-top.type2 {
+    border-bottom: 1px solid rgba(153, 153, 153, .5);
+    padding: 16px 0;
+}
+
+.container-md {
+    margin: 0 auto;
+    max-width: 1700px;
+    width: 100%;
+}
+
+.header-logo {
+    align-items: center;
+    color: var(--gt-black-01);
+    font-size: 20px;
+    font-weight: 50;
+    display: flex;
+    gap: 12px;
+}
+
+.header-logo img {
+    height: 28px;
+}
+
+.expert-register-step {
+    border-bottom: 1px solid #cccccc;
+    padding: 12px 0;
+}
+
+.expert-register-step .container-md {
+    display: flex;
+    justify-content: space-between;
+}
+
+.expert-register-step ul {
+    display: flex;
+}
+
+.expert-register-step ul li {
+    align-items: center;
+    color: #999;
+    font-size: 18px;
+    font-weight: 500;
+    display: flex
+;
+    gap: 8px;
+}
+
+.expert-register-step ul li:after {
+    background-size: cover;
+    content: "";
+    display: inline-block;
+    height: 29px;
+    margin: 0 20px;
+    width: 37px;
+    background: url(../img/다운로드.png);
+}
+
+.expert-register-step ul li span {
+    align-items: center;
+    border-radius: 100px;
+    background: #ccc;
+    color: var(--gt-write);
+    font-size: var(--gt-text-sm);
+    font-weight: 700;
+    display: flex;
+    height: 32px;
+    justify-content: center;
+    width: 32px;
+}
+
+.new-product-wrap {
+    margin: 20px 0 100px;
+}
+
+.new-product-wrap p {
+    color: var(--gt-gray-01);
+    font-size: 20px;
+}
+
+.new-product-wrap ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 20px 0 0;
+}
+
+.product-type {
+    align-items: center;
+    border: 1px solid #cccccc;
+    border-radius: 12px;
+    display: flex;
+    gap: 28px;
+    padding: 40px;
+}
+
+.product-type img {
+    height: 60px;
+}
+
+.product-type-text h1 {
+    color: var(--gt-gray-01);
+    font-size: 20px;
+}
+
+.product-type-text p {
+    color: var(--gt-gray-02);
+    font-size: 15px;
+}
+
+.product-type button {
+    margin: 0 0 0 900px;
+    height: 40px;
+    width: 140px;
+}
+
+.product-type .btn-primary-a {
+    margin: 0 0 0 1000px;
+    height: 40px;
+    width: 140px;
+}
+
+.btn-primary-a {
+    background: var(--gt-primary);
+    border: 1px solid var(--gt-primary);
+    color: var(--gt-write);
+}
+
+.product-type .btn-primary-b {
+    margin: 0 0 0 1050px;
+    height: 40px;
+    width: 140px;
+}
+
+.btn-primary-b {
+    background: var(--gt-primary);
+    border: 1px solid var(--gt-primary);
+    color: var(--gt-write);
+}
+
+.btn-primary {
+    background: var(--gt-primary);
+    border: 1px solid var(--gt-primary);
+    color: var(--gt-write);
+}
+.btn {
+    border-radius: 6px;
+}
+

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout1}">
+<head>
+    <meta charset="UTF-8">
+    <title>틱톡커-영상/비디오</title>
+    <link th:href="@{/css/video.css}" rel="stylesheet">
+</head>
+<body>
+<div class="cont-area" layout:fragment="content">
+    <div class="container">
+        <div class="cont-top">
+            <div class="depth-group">
+                <ul>
+                    <li>
+                        <a href="/">
+                            <i class="ico i-home"></i>
+                        </a>
+                    </li>
+                    <li>/</li>
+                    <li>
+                        <a href="#">영상/사진</a>
+                    </li>
+                </ul>
+            </div>
+            <h1>영상/사진</h1>
+            <p>영상, 애니메이션, 사진의 촬영과 후반작업에 관한 상품입니다.</p>
+        </div>
+        <div class="cont-body product-item-wrap">
+            <div class="product-filter">
+                <!-- 필터링 관련 코드 유지 -->
+                <div class="dropdown-group catagory md">
+                    <div class="dropdown-list-wrap">
+                        <button class="dropdown-button" id="dropdown-button" type="button" aria-haspopup="true" aria-expanded="false">
+                            카테고리 선택
+                        </button>
+                        <ul id="drop01" class="dropdown-list-A">
+                            <li>영상편집/후반작업</li>
+                            <li>애니메이션/모션</li>
+                            <li>소셜/마케팅 영상</li>
+                            <li>제품/가이드 영상</li>
+                            <li>사진촬영/보정</li>
+                            <li>영상촬영/드론</li>
+                            <li>모델/배우</li>
+                            <li>기타</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="dropdown-group serivce md">
+                    <div class="dropdown-list-wrap">
+                        <button class="dropdown-button" data-th-target="drop2">
+                            서비스종류
+                        </button>
+                        <div id="drop02" class="dropdown-list">
+                            <div class="check-wrap">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="check-group type2">
+                                            <input type="checkbox" id="chk00">
+                                            <label for="chk00">
+                                                작업전달 상품
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="product-top">
+                <div class="left">
+                    <span th:text="${productList.size()}"></span> 개
+                </div>
+                <div class="right">
+                    <div class="ad-info">
+                        <span class="btn-ad">
+                            <i class="ico i-info"></i>
+                        </span>
+                    </div>
+                    <div class="dropdown-group array">
+                        <div class="dropdown-list-wrap">
+                            <button class="dropdown-button active" data-th-target="drop06">
+                                정렬기준:
+                                <span>추천순</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 상품 목록 반복문 시작 -->
+            <div class="row">
+                <div th:each="product : ${productList}" class="col-3">
+                    <a th:href="@{'/Detailvideo/' + ${product.id}}" style="text-decoration: none;">
+                        <div class="product-wrap">
+                            <button class="btn-heart"></button>
+                            <div class="swiper-wrap product-img" style="cursor: pointer;">
+                                <div class="swiper product-img-swiper">
+                                    <!-- 대표 이미지가 없는 경우 기본 이미지 표시 -->
+                                    <img th:src="${product.productionServiceImgs != null && product.productionServiceImgs.size() > 0 ? product.productionServiceImgs[0].imgUrl : '/images/default.png'}" alt="Product Image">
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <div class="info-top">
+                                    <span class="user on" th:text="${product.user.name}">User Name</span>
+                                </div>
+                                <h5 class="product-name" th:text="${product.title}">Product Name</h5>
+                                <h6 class="product-price" th:text="${product.basePrice} + ' 원'">Price</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <!-- 상품 목록 반복문 종료 -->
+        </div>
+    </div>
+</div>
+
+<!-- 스크립트 태그를 </body> 바로 전에 위치시킴 -->
+<th:block layout:fragment="script">
+    <script th:inline="javascript">
+        console.log("인라인 JavaScript 로드됨");
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const dropdownButton = document.getElementById("dropdown-button");
+            const dropdownList = document.getElementById("drop01");
+
+            if (!dropdownButton || !dropdownList) {
+                console.error("드롭다운 버튼이나 리스트 요소를 찾을 수 없습니다.");
+                return;
+            }
+
+            dropdownButton.addEventListener("click", function (event) {
+                event.preventDefault(); // 기본 동작 방지
+                console.log("Button clicked!");
+
+                // 'active' 클래스 토글
+                dropdownList.classList.toggle("active");
+                dropdownButton.classList.toggle("active"); // 화살표 회전을 위해 버튼에도 클래스 추가
+
+                // 'aria-expanded' 속성 업데이트
+                const isActive = dropdownList.classList.contains("active");
+                dropdownButton.setAttribute("aria-expanded", isActive);
+
+                // 디버깅용 로그 출력
+                console.log("Dropdown active:", isActive);
+            });
+
+            // 외부 클릭 시 드롭다운 닫기
+            document.addEventListener("click", function (event) {
+                if (!dropdownButton.contains(event.target) && !dropdownList.contains(event.target)) {
+                    if (dropdownList.classList.contains("active")) {
+                        dropdownList.classList.remove("active");
+                        dropdownButton.classList.remove("active");
+                        dropdownButton.setAttribute("aria-expanded", false);
+                        console.log("Dropdown closed by clicking outside.");
+                    }
+                }
+            });
+        });
+    </script>
+</th:block>
+</body>
+</html>

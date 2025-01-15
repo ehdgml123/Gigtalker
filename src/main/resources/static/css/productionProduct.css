@@ -1,0 +1,444 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+:root {
+    --dropdown-placeholder: "Select an option";
+    --gt-info: #10A9FF;
+    --gt-success: #32C771;
+    --gt-warning: #FF9659;
+    --gt-error: #EB5757;
+    --gt-primary: #3B00CC;
+    --gt-secondary: #7B78FF;
+    --gt-write: #ffffff;
+    --gt-black-01: #000000;
+    --gt-black-02: #1D1D1D;
+    --gt-black-03: #282828;
+    --gt-gray-01: #333333;
+    --gt-gray-02: #4f4f4f;
+    --gt-gray-03: #828282;
+    --gt-gray-04: #bdbdbd;
+    --gt-gray-05: #e0e0e0;
+    --gt-gray-06: #f0f0f0;
+    --gt-gray-07: #f5f5f5;
+    --gt-gray-08: #FAFAFA;
+    --gt-primary-bg: #F4F3FD;
+    --gt-gray-bg: #F7F7FA;
+    --gt-sky-bg: #ECF5FB;
+    --gt-body-font-size: 16px;
+    --gt-body-font-weight: 400;
+    --gt-font-sans-serif: "NotoSansKR", sans-serif;
+    --gt-text-lg: 16px;
+    --gt-text-md: 14px;
+    --gt-text-sm: 13px;
+    --gt-text-mn: 12px;
+    --gt-shadow: 0px 4px 4px 0px rgba(0, 0, 0, .25);
+}
+
+
+
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans KR', sans-serif;
+    box-sizing: border-box;
+}
+
+ul, li, ol{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.header-top.type2 {
+    border-bottom: 1px solid rgba(153, 153, 153, .5);
+    padding: 16px 0;
+}
+
+.container-md {
+    margin: 0 auto;
+    max-width: 880px;
+    width: 100%;
+}
+
+.header-logo {
+    align-items: center;
+    color: var(--gt-black-01);
+    font-size: 20px;
+    display: flex;
+    gap: 12px;
+}
+
+.header-logo img {
+    height: 28px;
+}
+
+.expert-register-step {
+    border-bottom: 1px solid #cccccc;
+    padding: 12px 0;
+}
+
+.expert-register-step .container-md {
+    display: flex;
+    justify-content: space-between;
+}
+
+.expert-register-step ul {
+    display: flex;
+}
+
+.expert-register-step ul li.active {
+    color: var(--gt-black-01);
+}
+
+.expert-register-step ul li {
+    align-items: center;
+    color: #999;
+    font-size: 17px;
+    font-weight: 500;
+    display: flex;
+    gap: 8px;
+}
+
+.expert-register-step ul li.active span {
+    background: #8437dd;
+}
+
+.expert-register-step ul li span {
+    align-items: center;
+    border-radius: 100px;
+    background: #ccc;
+    color: var(--gt-write);
+    font-size: var(--gt-text-sm);
+    font-weight: 700;
+    display: flex;
+    height: 32px;
+    justify-content: center;
+    width: 32px;
+}
+
+
+.expert-register-step ul li:after {
+    background-size: cover;
+    content: "";
+    display: inline-block;
+    height: 33px;
+    margin: 0 20px;
+    width: 25px;
+    background: url(../img/ghkghk.png);
+}
+
+.new-product-wrap {
+    margin: 20px 0 100px;
+}
+
+.product-input-area {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    padding: 40px 0 0;
+}
+
+.product-input-area .row {
+    --bs-gutter-x: 100px;
+}
+
+.row {
+    --bs-gutter-x: 1rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(-1* var(--bs-gutter-y));
+    margin-right: calc(-.5* var(--bs-gutter-x));
+    margin-left: calc(-.5* var(--bs-gutter-x));
+}
+
+.col-4 {
+    flex: 0 0 auto;
+    width: 33.33333333%;
+}
+
+.product-input-area h6 {
+    align-items: center;
+    color: var(--gt-black-03);
+    display: flex;
+    font-size: 22px;
+    gap: 8px;
+}
+
+.product-input-area p {
+    color: var(--gt-gray-03);
+    font-size: 18px;
+    margin: 4px 0 0;
+}
+
+.col-8 {
+    flex: 0 0 auto;
+    width: 66.66666667%;
+}
+
+.product-input-area .text-group {
+    gap: 0;
+}
+
+.text-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.text-group textarea {
+    background: #fff;
+    border: 1px solid var(--gt-gray-05);
+    border-radius: 6px;
+    color: #000;
+    font-size: 13px;
+    font-weight: 400;
+    height: 200px;
+    padding: 16px;
+    transition: all .5s;
+    width: 100%;
+}
+
+.text-group.md textarea {
+    height: 180px;
+    padding: 12px;
+}
+
+.product-input-area .text-group.h-80 textarea {
+    height: 80px;
+}
+
+.product-category-group {
+    display: flex;
+    gap: 12px;
+}
+
+.product-category-group .Mainselect-group {
+    width: 100%;
+}
+
+.product-category-group .subselect-group {
+    width: 100%;
+}
+
+.Mainselect-group {
+    max-width: 500px;
+}
+
+.subselect-group {
+    max-width: 500px;
+}
+
+.Mainselect-group select{
+    background: url("../img/alxdp.png") no-repeat 50% / 20px auto;;
+    background-position: right 12px center;
+    border: 1px solid var(--gt-gray-05);
+    border-radius: 6px;
+    color: var(--gt-gray-01);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 400;
+    height: 50px;
+    padding: 0 48px 0 16px;
+    transition: all .5s;
+    width: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+
+.subselect-group select{
+    background: url("../img/alxdp.png") no-repeat 50% / 20px auto;;
+    background-position: right 12px center;
+    border: 1px solid var(--gt-gray-05);
+    border-radius: 6px;
+    color: var(--gt-gray-01);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 400;
+    height: 50px;
+    padding: 0 48px 0 16px;
+    transition: all .5s;
+    width: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.Mainselect-group option {
+    color: var(--gt-gray-01);
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.subselect-group option {
+    color: var(--gt-gray-01);
+    font-size: 14px;
+    font-weight: 400;
+}
+
+ .select-group {
+    width: 50%;
+}
+
+ .input-area {
+    position: relative;
+}
+
+
+.input-area {
+    align-items: center;
+    display: flex;
+    gap: 8px;
+    position: relative;
+    width: 100%;
+}
+
+.input-area span {
+    color: var(--gt-black-01);
+    font-size: var(--gt-text-md);
+    position: absolute;
+    right: 16px;
+}
+
+.input-group input[type=text], .input-group input[type=password], .input-group input[type=number] {
+    background: var(--gt-write);
+    border: 1px solid var(--gt-gray-05);
+    border-radius: 6px;
+    color: var(--gt-gray-01);
+    font-size: 14px;
+    font-weight: 400;
+    height: 50px;
+    padding: 0 16px;
+    transition: all .5s;
+    position: relative;
+    left: 420px;
+}
+
+.select-group select{
+    background: url("../img/alxdp.png")  no-repeat 50% / 20px auto ;
+    background-position: right 12px center;
+    border: 1px solid var(--gt-gray-05);
+    border-radius: 6px;
+    color: var(--gt-gray-01);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 400;
+    height: 50px;
+    padding: 0 48px 0 16px;
+    transition: all .5s;
+    width: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.col-12 {
+    flex: 0 0 auto;
+    width: 100%;
+    margin-top: 155px;
+}
+
+.btn-group button {
+    font-size: var(--gt-text-lg);
+    font-weight: 700;
+    height: 55px;
+    width: 200px;
+}
+
+.btn-group button {
+    font-size: var(--gt-text-lg);
+    font-weight: 700;
+    height: 55px;
+    width: 200px;
+}
+
+.btn-primary {
+    background: var(--gt-primary);
+    border: 1px solid var(--gt-primary);
+    color: var(--gt-write);
+}
+
+.btn {
+    border: 0;
+    border-radius: 6px;
+}
+
+.product-input-area ul {
+    display: block;
+    list-style-type: disc;
+    margin: 0;
+    padding: 0 0 0 20px;
+}
+
+.product-input-area ul li {
+    color: var(--gt-gray-03);
+    font-size: 17px;
+    list-style-type: disc;
+}
+
+.product-img-group {
+    background-size: cover;
+    background-position: center center;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    height: 166px;
+    position: relative;
+    width: 262px;
+    left: 387px;
+}
+
+.product-img-group input {
+    display: none;
+}
+
+.product-img-group .btn-img-upload {
+    background: none;
+    border: 0;
+    display: flex;
+    flex-direction: column;
+    height: 166px;
+    padding: 0;
+    width: 262px;
+}
+
+.i-product-img-sample{
+    background: url("../img/file.png");
+    display: block;
+    width: 129px;
+    height: 114px;
+    margin-left: 57px;
+
+}
+
+.product-input-area p {
+    color: var(--gt-gray-03);
+    font-size: var(--gt-text-sm);
+    margin: 4px 0 0;
+}
+
+
+#image-preview-container{
+    background-size: cover;
+    background-position: center center;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    height: 166px;
+    position: relative;
+    width: 262px;
+}
+
+#image-preview-container > img{
+    width: 100%;
+    height: 100%;
+}

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout1}">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${product.title}">상품 상세</title>
+    <link th:href="@{/css/videoDetail.css}" rel="stylesheet">
+</head>
+<body>
+    <div class="content" layout:fragment="content">
+        <div class="container">
+            <div class="product-detail">
+                <div class="product-detail-header">
+                    <div class="depth-group">
+                        <ul>
+                            <li>
+                                <a href="/">
+                                    <i class="ico i-home"></i>
+                                </a>
+                            </li>
+                            <li>/</li>
+                            <li>
+                                <a href="#" th:text="${product.category}"></a>
+                            </li>
+                            <li>/</li>
+                            <li th:text="${product.subCategory}"></li>
+                        </ul>
+                    </div>
+                    <div class="detail-etc">
+                        <button type="button" class="btn-pink-heart">
+                            <i class="ico i-heart-pink"></i>
+                            1
+                        </button>
+                        <button type="button" class="btn-heart">
+                            <i class="ico i-heart-blue"></i>
+                        </button>
+                        <button type="button" class="btn-share open-modal">
+                            <i class="ico i-share-blue"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-detail-body">
+                    <div class="prdouct-detail-area">
+                        <div class="product-detail-top">
+                            <h1 th:text="${product.title}"></h1>
+                            <div class="seller-profile">
+                                <div class="seller-info">
+                                    <h6 class="seller-name" th:text="${product.user.name}"></h6>
+                                    <p class="seller-review">
+                                        <i class="ico i-star-active"></i>
+                                        5
+                                        <span>(1)</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-detail-detail">
+                            <div class="product-detail-img-wrap">
+                                <div class="swiper-wrap">
+                                    <div class="product-detila-img-swiper">
+                                        <div class="swiper swiper-initialized swiper-horizontal swiper product-detila-img-swiper-02">
+                                            <div class="swiper-slide swiper-slide-active swiper-slide" th:each="img : ${product.productionServiceImgs}" role="group" aria-label="1/1" style="display: flex; width: 841px;" >
+                                                <img th:src="${img.imgUrl}" th:alt="${img.oriImgName}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-detail-swiper-01">
+                                        <div class="swiper swiper-initialized swiper-horizontal swiper product-detila-img-swiper-01">
+                                            <div class="swiper-wrapper" id="swiper-wrapper-c6f5c3342d858934" aria-live="polite">
+                                                <div class="swiper-slide swiper-slide-active swiper-slide" role="group" aria-label="1/1" style="width: 131.2px; margin-bottom: 3px">
+                                                    <div class="swiper-wrapper">
+                                                        <div class="swiper-slide swiper-slide-thumb-active" th:each="img : ${product.productionServiceImgs}">
+                                                            <img th:src="${img.imgUrl}" th:alt="${img.oriImgName}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tabs">
+                                    <ul class="tab-list">
+                                        <li id="viewProductTap" class="tab-button active" data-target="viewProduct">
+                                            서비스 설명
+                                        </li>
+                                        <li id="sellerInfoTap" class="tab-button" data-target="sellerInfo">
+                                            판매자정보
+                                        </li>
+                                        <li id="editReprocessTap" class="tab-button" data-target="editReprocess">
+                                            수정/재진행
+                                        </li>
+                                        <li id="cancelRefundTap" class="tab-button" data-target="cancelRefund">
+                                            취소/환불
+                                        </li>
+                                        <li id="reviewTap" class="tab-button" data-target="reviews">
+                                            리뷰
+                                        </li>
+                                    </ul>
+                                <div class="tab-content" id="viewProduct">
+                                    <h2>서비스 설명</h2>
+                                    <div class="ck-content">
+                                        <p th:text="${product.description}">상품 설명</p>
+                                    </div>
+                                </div>
+                                <div class="tab-content" id="sellerInfo">
+                                    <h2>판매자정보</h2>
+                                    <div class="seller-profile-top">
+                                        <div class="seller-profile">
+                                            <div class="seller-info">
+                                                <h6 class="seller-name" th:text="${product.user.name}">판매자 이름</h6>
+                                                <p class="seller-review">
+                                                    <i class="ico i-star-active"></i>
+                                                    5
+                                                    <span>(1)</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-outline-gray">프로필 자세히 보기</button>
+                                    </div>
+                                    <div class="seller-profile-bot">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <dl>
+                                                    <dt>가입일자</dt>
+                                                    <dd>2024.06.28 03:10</dd>
+                                                </dl>
+                                            </div>
+                                            <div class="col-6">
+                                                <dl>
+                                                    <dt>평균응답시간</dt>
+                                                    <dd>-</dd>
+                                                </dl>
+                                            </div>
+                                            <div class="col-6">
+                                                <dl>
+                                                    <dt>최종작업일</dt>
+                                                    <dd>-</dd>
+                                                </dl>
+                                            </div>
+                                            <div class="col-12">
+                                                <h6 style="white-space: pre-line">
+                                                    미대 출신! 속도보장!
+
+                                                    저희는 만사만물 디자인 가능한 와우디자인입니다!
+                                                    모든것을 다 할 수 있습니다만, 아랫 내용은 저희 더더더 잘합니다!
+
+                                                    -명함 디자인 및 제작 (해외제작으로 저렴하게!)
+                                                    -각종 광고(부동산, 이벤트 광고 잘합니다!)
+                                                    -유튜브/인스타 썸네일 (노출클릭율 보장!)
+                                                    -제품 상세페이지 디자인 (한/중/영 3 언어 지원, 다언어 디자인 가능)
+                                                    -셀프 여권/비자 사진 포토샵+인화 레이아웃 (편의점 인화로 저렴하게!)
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-content" id="editReprocess">
+                                    <h2>수정 및 재진행</h2>
+                                    <div class="ck-content">
+                                        - 이미지 수정은 2회까지 가능하며, [규격추가] 옵션은 상품결제시 한하여 적용됩니다.
+                                    </div>
+                                </div>
+                                <div class="tab-content" id="cancelRefund">
+                                    <h2>취소 및 환불</h2>
+                                    <div class="ck-content">
+                                        <p>
+                                            01. 전문가와 구매자 간의 상호 협의 후 거래취소가 가능합니다.
+                                            <br>
+                                            &nbsp;
+                                        </p>
+                                        <p>
+                                            02. 전문가의 귀책사유로 작업/상담을 시작하지 않았거나 보편적인 관점에서 심각하게 잘못 이행한 경우 결제 금액 전체 환불이 가능합니다.
+                                            <br>
+                                            &nbsp;
+                                        </p>
+                                        <p>
+                                            03. 전문가가 거래 중 마감일까지 합의한 서비스를 완전하게 제공하지 못할 경우 구매자와의 합의하에 완료한 작업물 개수와 일수 등을 공제하고 잔여 금액을 환불합니다.
+                                            <br>
+                                            &nbsp;
+                                        </p>
+                                        <p>
+                                        04. 소비자 피해 보상 규정에 의거하여 작업물 원본의 멸실 및 작업 기간 미이행 및 이에 상응하는 전문가 책임으로 인한 피해 발생 시, 전액 환불
+                                        <br>
+                                        &nbsp;
+                                       </p>
+                                        <p>
+                                            05. 시안 제공 및 수정이 추가로 이뤄진 경우 환불 금액내 수정 횟수에 따라 분할하여 환불.
+                                            <br>
+                                            &nbsp;
+                                        </p>
+                                        <p>
+                                            06. 주문 제작 상품 등 서비스 받은 항목이 없으며, 결제 후 1일 이내 작업이 진행되기 전 시점은 전액 환불 가능.
+                                            <br>
+                                            &nbsp;
+                                        </p>
+                                        <p>07. 환불이 불가능한 서비스에 대한 사실을 표시사항에 포함한 경우에는 의뢰인의 환불요청이 제한됩니다.</p>
+                                        <p>
+                                            1) 주문 제작 상품으로 제작(인쇄 등)이 진행된 경우.
+                                            <br>
+                                            &nbsp;
+                                        </p>
+                                        <p>
+                                            2) 수정이 없는 상품으로 시안 수령 후에는 환불 불가
+                                            <br>
+                                            &nbsp;
+                                        </p>
+                                        <p>※ 전자상거래법에 규율된 내용보다 상기 판매규정의 내용이 불리한 경우 전자상거래법 내용이 우선 적용됩니다.</p>
+                                    </div>
+                                </div>
+                                <div class="tab-content" id="reviews">
+                                    <h2>리뷰</h2>
+                                    <div class="product-detail-review">
+                                        <div class="product-detail-review-top">
+                                            <div class="all-review">
+                                                <ul>
+                                                    <li>
+                                                        전체리뷰 &nbsp;
+                                                        <b th:text="${totalReviews}">0</b>
+                                                        건
+                                                    </li>
+                                                    <li>
+                                                        <ul class="review-score">
+                                                            <li th:each="star : ${#numbers.sequence(1, 5)}">
+                                                                <i class="ico i-star-active"
+                                                                   th:if="${star <= roundedAverageRating}"></i>
+                                                            </li>
+                                                        </ul>
+                                                        <span th:text="${averageRating}" style="font-size: 24px; position: relative; top: -8px">0.0</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="product-detail-review-rating">
+                                                <dl th:each="rating : ${#numbers.sequence(5, 1)}">
+                                                    <dt>
+                                                        별 <span th:text="${rating}"></span>개
+                                                        <div class="progress-container">
+                                                            <div class="progress-bar"
+                                                                 th:style="'width: ' + ${progressBarWidths[rating]}">
+                                                            </div>
+                                                        </div>
+                                                        (<span th:text="${ratingStats[rating] != null ? ratingStats[rating] : 0}">0</span>)
+                                                    </dt>
+                                                    <dd>
+                                                        <i class="ico i-star-active"></i>
+                                                        <b th:text="${ratingStats[rating] != null && totalReviews > 0 ? #numbers.formatDecimal((ratingStats[rating] / totalReviews) * 5, 1) : '0.0'}">0.0</b>
+                                                        <span th:if="${rating == 5}">커뮤니케이션 수준</span>
+                                                        <span th:if="${rating == 4}">친구에게 추천</span>
+                                                        <span th:if="${rating == 3}">서비스 품질</span>
+                                                        <span th:if="${rating == 2}">상품 만족도</span>
+                                                        <span th:if="${rating == 1}">다시 구매 의사</span>
+                                                    </dd>
+                                                </dl>
+                                            </div>
+                                            <div class="product-detail-review-text">
+                                                <p>
+                                                    정렬기준 :
+                                                    <b>최근순</b>
+                                                </p>
+                                                <ul>
+                                                    <li th:each="review : ${reviews}">
+                                                        <div class="review-item">
+                                                            <div class="review-item-top">
+                                                                <div class="review-item-info">
+                                                                    <h3 th:text="${review.payment.user.name}">작성자 이름</h3>
+                                                                    <ul class="review-wrote-user">
+                                                                         <li>
+                                                                             <i class="ico i-star-active" th:each="star : ${#numbers.sequence(1, review.rating)}"></i>
+                                                                         </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                            <h6 class="review-text">
+                                                                <span style="white-space: pre-line;" th:text="${review.review}"></span>
+                                                            </h6>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-detail-info">
+                        <div class="detail-info-box">
+                            <div class="info-box-top">
+                                <div class="product-price">
+                                    기본가격
+                                    <b th:text="${product.basePrice} + ' 원'"></b>
+                                </div>
+                                <p class="product-desc" th:text="${product.description}"> </p>
+                                <div class="product-op">
+                                    <dl>
+                                        <dt>
+                                            <i class="ico i-detail-time"></i>
+                                            최대 작업 시간
+                                        </dt>
+                                        <dd th:text="${product.maxWorkingDays} + '일'">1</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>
+                                            <i class="ico i-detail-edit"></i>
+                                            무료수정
+                                        </dt>
+                                        <dd th:text="${product.freeRevisions} + '회'">1회</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>
+                                            <i class="ico i-detail-dialog"></i>
+                                            대화방법
+                                        </dt>
+                                        <dd th:text="${product.communicationMethod}">채팅</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>
+                                            <i class="ico i-detail-as"></i>
+                                            A/S 기간
+                                        </dt>
+                                        <dd>-</dd>
+                                    </dl>
+                                </div>
+                                <div class="dropdown-group md">
+                                    <div class="dropdown-list-wrap">
+                                        <button class="dropdown-button" data-target="drop3">
+                                            <span class="placeholder">옵션선택</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                             <hr>
+                            <div class="info-box-bot">
+                                <div class="product-all-info">
+                                    <dl>
+                                        <dt>총 작업기간</dt>
+                                        <dd th:text="${product.maxWorkingDays} + '일'">1일</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>총 상품금액</dt>
+                                        <dd th:text="${product.basePrice} + ' 원'">5,000</dd>
+                                    </dl>
+                                </div>
+                                <a th:href="@{'/Order/OrderDetails?id=' + ${product.id}}">
+                                    <button type="submit" class="btn btn-primary btn-xl">바로구매</button>
+                                </a>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-md btn-outline-gray">채팅문의</button>
+                                    <button type="button" class="btn btn-md btn-outline-gray" data-modal-id="orderModal">견적문의</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<th:block layout:fragment="script">
+    <script th:inline="javascript">
+
+    </script>
+</th:block>
+</html>

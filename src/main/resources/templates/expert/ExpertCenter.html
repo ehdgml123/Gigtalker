@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout1}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link th:href="@{/css/ExpertCenter.css}" rel="stylesheet">
+</head>
+<body>
+<div id="container" layout:fragment="content">
+  <div class="content expert-center">
+    <div class="container">
+      <aside class="sc-sidebar">
+        <div class="expert-profile">
+          <h5 th:text="${userName}"></h5>
+        </div>
+        <h6>
+          이달 수익금
+          <span>0원</span>
+        </h6>
+        <ul class="sc-menu">
+          <li id="center" class="active">
+            <a aria-current="page" href="#" class="router-link-active router-link-exact-active">
+              센터홈
+            </a>
+          </li>
+          <li id="sold-list">
+            <a aria-current="page" href="#">
+              판매관리
+            </a>
+          </li>
+          <li id="product-management">
+            <a aria-current="page" th:href="@{/expert/ProductManagement}">
+              내 상품관리
+            </a>
+          </li>
+        </ul>
+      </aside>
+      <div class="ec-content">
+        <div class="ec-main">
+           <div class="ec-main-box">
+             <h1>
+               현재 등록중인 상품이 없어요.
+               <br>
+               상품을 등록해 주세요
+             </h1>
+             <a aria-current="page" href="#" class="router-link-active router-link-exact-active" th:href="@{/expert/main}">
+               <button type="button" class="btn btn-lg btn-primary">상품등록하기</button>
+             </a>
+           </div>
+            <div class="ec-main-box-area">
+              <h4>
+                서비스현황
+                <a href="#" class="">더보기</a>
+              </h4>
+              <div class="ec-main-boxl type2">
+                <div class="service-cs">
+                  <dl>
+                    <dt>대기중</dt>
+                    <dd>
+                      <span></span>건
+                    </dd>
+                  </dl>
+                  <dl>
+                    <dt>대기중</dt>
+                    <dd>
+                      <span></span>건
+                    </dd>
+                  </dl>
+                  <dl>
+                    <dt>진행중</dt>
+                    <dd>
+                      <span></span>건
+                    </dd>
+                  </dl>
+                  <dl>
+                    <dt>거래완료</dt>
+                    <dd>
+                      <span></span>건
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+            </div>
+           <div class="ec-main-box-area">
+             <h4>
+               내 상품 관리
+               <a href="#" class="">더보기</a>
+             </h4>
+             <div class="ec-main-boxl type2">
+
+             </div>
+           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout1}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/css/notice.css}" rel="stylesheet">
+</head>
+<body>
+<div class="content service-center" layout:fragment="content">
+    <div class="container">
+        <aside class="sc-sidebar">
+            <h4>고객센터</h4>
+            <ul class="sc-menu">
+                <li id="notice" class="active">
+                    <a aria-current="page" href="" class="router-link-active router-link-exact-active">
+                        공지사항
+                    </a>
+                </li>
+                <li class="inquiry">
+                    <a href="/inquity" >1:1문의</a>
+                </li>
+                <li class="faq">
+                    <a th:href="@{/eventList}">이벤트</a>
+                </li>
+            </ul>
+        </aside>
+        <div class="sc-content">
+            <h1>공지사항</h1>
+            <ul class="sc-list">
+                <li class="fix">
+                    <span>중요</span>
+                    [구매자] 안전한 거래를 위해 꼭 지켜주세요!
+                    <p>2024-10-24 21:53</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

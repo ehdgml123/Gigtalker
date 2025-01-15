@@ -1,0 +1,245 @@
+:root {
+    --dropdown-placeholder: "Select an option";
+    --gt-info: #10A9FF;
+    --gt-success: #32C771;
+    --gt-warning: #FF9659;
+    --gt-error: #EB5757;
+    --gt-primary: #3B00CC;
+    --gt-secondary: #7B78FF;
+    --gt-write: #ffffff;
+    --gt-black-01: #000000;
+    --gt-black-02: #1D1D1D;
+    --gt-black-03: #282828;
+    --gt-gray-01: #333333;
+    --gt-gray-02: #4f4f4f;
+    --gt-gray-03: #828282;
+    --gt-gray-04: #bdbdbd;
+    --gt-gray-05: #e0e0e0;
+    --gt-gray-06: #f0f0f0;
+    --gt-gray-07: #f5f5f5;
+    --gt-gray-08: #FAFAFA;
+    --gt-primary-bg: #F4F3FD;
+    --gt-gray-bg: #F7F7FA;
+    --gt-sky-bg: #ECF5FB;
+    --gt-body-font-size: 16px;
+    --gt-body-font-weight: 400;
+    --gt-font-sans-serif: "NotoSansKR", sans-serif;
+    --gt-text-lg: 16px;
+    --gt-text-md: 14px;
+    --gt-text-sm: 13px;
+    --gt-text-mn: 12px;
+    --gt-shadow: 0px 4px 4px 0px rgba(0, 0, 0, .25);
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+ul, li, ol{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.account-set-wrap {
+    padding: 50px 0 100px;
+    height: 640px;
+}
+
+.account-set-wrap .container {
+    display: flex;
+    gap: 60px;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1700px;
+    width: 100%;
+}
+
+.sc-sidebar {
+    flex: 0 0 auto;
+    width: 280px;
+}
+
+.sc-sidebar h4 {
+    border-bottom: 5px solid var(--gt-black-01);
+    font-size: 24px;
+    font-weight: 700;
+    padding: 0 0 16px;
+}
+
+.sc-menu {
+    display: flex;
+    flex-direction: column;
+    margin: 8px 0 0;
+}
+
+.sc-menu li {
+    border-bottom: 1px solid var(--gt-gray-05);
+}
+
+.sc-menu li a {
+    color: var(--gt-gray-03);
+    display: block;
+    font-size: var(--gt-text-lg);
+    padding: 8px 16px;
+    position: relative;
+}
+
+.acset-content {
+    width: calc(100% - 340px);
+}
+
+.acset-content h1 {
+    border: 0;
+    font-weight: 400;
+    display: flex;
+    justify-content: space-between;
+}
+
+.acset-content  span {
+    font-size: var(--gt-text-lg);
+}
+
+.acset-content span a {
+    color: #8437dd;
+    text-decoration: underline;
+}
+
+.my-info-edit {
+    border: 1px solid #cccccc;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin: 12px 0 0;
+    padding: 40px;
+}
+
+.my-info-edit .input-group {
+    align-items: center;
+    flex-direction: row;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.my-info-edit .input-area.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.my-info-edit .input-area {
+    width: 100%;
+}
+
+.input-area {
+    align-items: center;
+    display: flex;
+    gap: 8px;
+    position: relative;
+    width: 100%;
+}
+
+.input-group.mn input[type=text], .input-group.mn input[type=password], .input-group.mn input[type=number] {
+    font-size: var(--gt-text-sm);
+    height: 40px;
+    padding: 0 12px;
+}
+
+.input-group input[type=text], .input-group input[type=password], .input-group input[type=number] {
+    background: var(--gt-write);
+    border: 1px solid var(--gt-gray-05);
+    border-radius: 6px;
+    color: var(--gt-gray-01);
+    font-size: 14px;
+    font-weight: 400;
+    height: 50px;
+    padding: 0 16px;
+    transition: all .5s;
+    width: 100%;
+}
+
+.my-info-edit .input-group label {
+    font-size: var(--gt-text-lg) !important;
+    flex: 0 0 auto;
+    width: 260px;
+}
+
+.input-group label {
+    color: var(--gt-black-01);
+    font-size: 18px !important;
+    font-weight: 500;
+    margin: 0;
+    text-align: left;
+}
+
+.input-group p {
+    align-items: center;
+    color: var(--gt-gray-04);
+    display: flex;
+    font-size: var(--gt-text-sm) !important;
+    justify-content: space-between;
+    margin: 4px 0 0;
+    text-align: left;
+    width: 100%;
+}
+
+.my-info-edit .btn-group {
+    justify-content: flex-end;
+}
+
+.btn-group {
+    align-items: center;
+    display: flex;
+    gap: 8px;
+}
+
+.my-info-edit .btn-group button {
+    font-size: var(--gt-text-lg);
+    height: 40px;
+    width: 200px;
+}
+
+.btn-primary:disabled {
+    background: var(--gt-gray-06);
+    color: var(--gt-gray-04);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.btn-primary.enabled {
+    background-color: #28a745 !important; /* 활성화 시 색상 */
+    border-color: #28a745 !important; /* 필요시 테두리 색상도 변경 */
+    cursor: pointer;
+    opacity: 1;
+}
+
+.btn-primary {
+    background: var(--gt-primary);
+    border: 1px solid var(--gt-primary);
+    color: var(--gt-write);
+    border-radius: 6px;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.btn {
+    border-radius: 6px;
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout1}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link th:href="@{/css/my-review.css}" rel="stylesheet">
+</head>
+<body>
+<div class="container-A" layout:fragment="content">
+  <div class="content mypage">
+    <div class="container">
+      <aside class="cs-sidedar">
+        <div class="mypage-profile">
+          <div class="mypage-profile-top">
+            <p>
+              내 프로필
+              <a aria-current="page" href="/EditInformation" class="router-link-active router-link-exact-active">수정하기</a>
+            </p>
+          </div>
+          <h5 th:text="${userName}"></h5>
+          <a href="/expert/main">
+            <button type="button" class="btn btn-primary">전문가 센터로 이동</button>
+          </a>
+        </div>
+        <h5>마이페이지</h5>
+        <ul class="sc-menu">
+          <li id="custom-orders">
+            <a aria-current="page"  href="/user/UserMyPage" class="router-link-active router-link-exact-active">
+              맞춤주문내역
+            </a>
+          </li>
+          <li id="order-management" >
+            <a href="/order-management"> 구매관리</a>
+          </li>
+          <li id="my-review" class="active">
+            <a href="/my-review">
+              내가 쓴 구매후기
+            </a>
+          </li>
+          <li id="pay-history">
+            <a href="/pay-history">결재내역</a>
+          </li>
+          <li id="received-coupon">
+            <a th:href="@{/mycoupon}">받은쿠폰함</a>
+          </li>
+        </ul>
+      </aside>
+      <div class="mypage-content">
+        <div class="ec-sell-set">
+          <h1>내가 쓴 구매후기</h1>
+          <div class="ec-sell-top">
+            <div class="select-group sm">
+              <select>
+                <option value="작성기간">작성기간</option>
+                <option value="전체">전체</option>
+                <option value="1">1개월내</option>
+                <option value="2">3개뤌내</option>
+                <option value="3">6개월내</option>
+                <option value="4">1년내</option>
+                <option value="5">2년내</option>
+              </select>
+            </div>
+            <div class="input-group mn">
+              <input type="text" id="text02" placeholder="제목">
+            </div>
+            <button type="button" class="btn btn-black">검색</button>
+          </div>
+          <div class="review-info">
+            <ul>
+              <li>◾️ 작성한 리뷰를 수정하고자 하는 경우, 작성일로부터 7일 이내에 1회만 수정하실 수 있습니다.</li>
+              <li>◾️ 작성한 리뷰를 삭제하고자 하는 경우, 작성자 본인이 직접 고객센터로 요청하셔야 하며, 복구 및 재작성은 불가합니다.</li>
+              <li>◾️ 회원 탈퇴 시 서비스 리뷰는 자동 삭제되지 않습니다.</li>
+            </ul>
+          </div>
+          <div class="ec-sell-body">
+            <div class="mp-product-review-list">
+              <ul>
+                <li>
+
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

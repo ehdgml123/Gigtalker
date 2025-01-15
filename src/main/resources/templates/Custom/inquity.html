@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout1}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/css/inquity.css}" rel="stylesheet">
+</head>
+<body>
+<div class="content service-center" layout:fragment="content">
+    <div class="container">
+        <aside class="sc-sidebar">
+            <h4>고객센터</h4>
+            <ul class="sc-menu">
+                <li id="notice">
+                    <a aria-current="page" href="" class="router-link-active router-link-exact-active">
+                        공지사항
+                    </a>
+                </li>
+                <li id="inquiry" class="active">
+                    <a href="/inquity" >1:1문의</a>
+                </li>
+                <li id="faq">
+                    <a th:href="@{/eventList}">이벤트</a>
+                </li>
+            </ul>
+        </aside>
+        <div class="sc-content">
+            <h1>1대1 문의</h1>
+            <div class="inquiry">
+                <div class="inquiry-header">
+                    <p>
+                        <span>[문의하시기 전에 확인해주세요!]</span>
+                        <br>
+                        긱톡커는 서비스 중개플랫폼입니다. 서비스 작업 의뢰는 사이트에서 전문가에게 직접 문의해 주시기를 부탁드립니다. 또한, 계정 인증에 관한 문의는 '휴대전화 번호' 또는 '이메일 주소'를 전달해 주시면 빠른 안내가 가능합니다.
+                    </p>
+                </div>
+                <form action="" method="post">
+                <div class="inquiry-body">
+                    <div class="select-group type2">
+                        <h6>회원 유형</h6>
+                        <select>
+                            <option value="유저">유저</option>
+                        </select>
+                    </div>
+                    <div class="input-group md">
+                        <input type="text" id="text01" placeholder="문의 제목을 작성해주세요" aria-label="groupName">
+                    </div>
+                    <div class="text-group">
+                        <textarea name="" cols="30" rows="10" placeholder="문의 내용울 작성해주세요"></textarea>
+                    </div>
+                    <div class="file-group">
+                        <h2>첨부파일</h2>
+                        <label for="fileupload">
+                            <span>파일 추가</span>
+                            또는 파일을 여기로 드래그
+                        </label>
+                        <input type="file" id="fileupload">
+                    </div>
+                </div>
+                    <div class="inquiry-footer">
+                        <button type="submit" class="btn btn-xl btn-primary">제출</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout1}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link th:href="@{/css/orderManagement.css}" rel="stylesheet">
+  <th:block th:replace="~{'member/orderManagement' :: orderManagementScript}"></th:block>
+</head>
+<body>
+<div class="container-A" layout:fragment="content">
+  <div class="content mypage">
+    <div class="container">
+      <aside class="cs-sidedar">
+        <div class="mypage-profile">
+          <div class="mypage-profile-top">
+            <p>
+              내 프로필
+              <a aria-current="page" href="/EditInformation" class="router-link-active router-link-exact-active">수정하기</a>
+            </p>
+          </div>
+          <h5 th:text="${userName}"></h5>
+          <a href="/expert/main">
+            <button type="button" class="btn btn-primary">전문가 센터로 이동</button>
+          </a>
+        </div>
+        <h5>마이페이지</h5>
+        <ul class="sc-menu">
+          <li id="custom-orders">
+            <a aria-current="page"  href="/user/UserMyPage" class="router-link-active router-link-exact-active">
+              맞춤주문내역
+            </a>
+          </li>
+          <li id="order-management" class="active">
+            <a href="/order-management"> 구매관리</a>
+          </li>
+          <li id="my-review">
+            <a href="/my-review">
+              내가 쓴 구매후기
+            </a>
+          </li>
+          <li id="pay-history">
+            <a href="/pay-history">결재내역</a>
+          </li>
+          <li id="received-coupon">
+            <a th:href="@{/mycoupon}">받은쿠폰함</a>
+          </li>
+        </ul>
+      </aside>
+      <div class="mypage-content">
+        <div class="ec-sell-set">
+          <div>
+            <h1>구매관리</h1>
+            <div class="ec-sell-top">
+              <div class="dropdown-group">
+                <div class="dropdown-list-wrap">
+                  <select class="dropdown-button">
+                    <option value="전체">전체</option>
+                    <option value="대기중">대기중</option>
+                    <option value="진행중">진행중</option>
+                    <option value="작업완료">작업완료</option>
+                    <option value="수정요청">수정요청</option>
+                    <option value="거래완료">거래완료</option>
+                    <option value="취소">취소</option>
+                    <option value="일시중단">일시중단</option>
+                  </select>
+                </div>
+              </div>
+              <div class="dropdown-group">
+                <div class="dropdown-list-wrap">
+                  <select class="dropdown-button">
+                    <option value="1개월">1개월</option>
+                    <option value="3개월">3개월</option>
+                    <option value="6개월">6개월</option>
+                    <option value="1년내">1녀내</option>
+                    <option value="2년내">2년내</option>
+                    <option value="전체">전체</option>
+                  </select>
+                </div>
+              </div>
+              <div class="input-group mn">
+                <input type="text" id="text2" placeholder="제목">
+              </div>
+              <button type="button" class="btn btn-black">검색</button>
+            </div>
+          </div>
+          <div class="ec-sell-category">
+            <ul>
+              <li class="active">전체</li>
+              <li class>대기중</li>
+              <li class>진행중</li>
+              <li>작업완료</li>
+              <li>수정요청</li>
+              <li>거래완료</li>
+              <li>취소</li>
+              <li>일시중단</li>
+            </ul>
+          </div>
+          <div class="ec-sell-body">
+            <p class="ec-sell-info">
+              <i class="ico i-exclamation-circle-fill"></i>
+              작업완료 이후 7일이 경과하면 자동으로 구매 확정이 되며 이후 환불이 불가능합니다.
+            </p>
+            <div class="ec-sell-list">
+              <ul>
+                <li th:if="${payments.isEmpty()}">
+                  <div class="mp-review-item-none">
+                    <p>구매관리 내역이 없습니다.</p>
+                  </div>
+                </li>
+                <li th:each="payment : ${payments}">
+                  <div class="ec-sell-item">
+                    <h4 th:text="'상품명: ' + ${payment.orderNumber}">주문 번호</h4>
+                    <p th:text="'결제 금액: ' + ${payment.amount} + '원'">결제 금액</p>
+                    <p th:text="'결제 상태: ' + ${payment.status}">결제 상태</p>
+                    <p th:text="'결제 방법: ' + ${payment.paymentMethod}">결제 방법</p>
+                  </div>
+                  <button type="button" class="button0" th:attr="data-payment-id=${payment.id}">리뷰 작성</button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <form id="myform">
+  <div id="reviewModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>리뷰 작성</h2>
+      <fieldset>
+        <span id="selectedStarText" class="text-bold">별점을 선택해주세요</span>
+        <input type="radio" name="reviewStar" value="5" id="rate1"><label
+              for="rate1">★</label>
+        <input type="radio" name="reviewStar" value="4" id="rate2"><label
+              for="rate2">★</label>
+        <input type="radio" name="reviewStar" value="3" id="rate3"><label
+              for="rate3">★</label>
+        <input type="radio" name="reviewStar" value="2" id="rate4"><label
+              for="rate4">★</label>
+        <input type="radio" name="reviewStar" value="1" id="rate5"><label
+              for="rate5">★</label>
+      </fieldset>
+      <textarea placeholder="리뷰를 작성하세요..." rows="5" class="reviewtextarea"></textarea>
+      <button type="button" class="btn btn-primary">제출하기</button>
+    </div>
+  </div>
+  </form>
+</div>
+<th:block th:fragment="orderManagementScript">
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const modal = document.getElementById("reviewModal");
+    const btns = document.querySelectorAll(".button0"); // 모든 '리뷰 작성' 버튼
+    const closeBtn = document.querySelector(".close"); // 닫기 버튼
+    const submitBtn = modal.querySelector(".btn-primary"); // 제출 버튼
+    const reviewTextarea = modal.querySelector(".reviewtextarea"); // 리뷰 입력
+    const radioButtons = document.querySelectorAll("input[name='reviewStar']"); // 별점 radio 버튼
+    let selectedRating = 0; // 선택한 별점
+    let currentPaymentId = null; // 현재 리뷰를 작성 중인 paymentId
+
+    // 버튼 클릭 시 모달 열기
+    btns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        modal.style.display = "block";
+        selectedRating = 0; // 별점 초기화
+        reviewTextarea.value = ""; // 텍스트 초기화
+        radioButtons.forEach((radio) => (radio.checked = false)); // 모든 radio 버튼 초기화
+
+        // 버튼의 data-payment-id 값 가져오기
+        currentPaymentId = btn.getAttribute("data-payment-id");
+
+        if (!currentPaymentId) {
+          alert("결제 정보가 올바르게 로드되지 않았습니다.");
+        }
+      });
+    });
+
+    // 닫기 버튼 클릭 시 모달 닫기
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+
+    // 모달 외부 클릭 시 닫기
+    window.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+
+    // radio 버튼 클릭 이벤트로 별점 읽기
+    radioButtons.forEach((radio) => {
+      radio.addEventListener("change", (event) => {
+        selectedRating = parseInt(event.target.value); // 선택된 별점 저장
+      });
+    });
+
+    // 리뷰 제출 버튼 클릭 이벤트
+    submitBtn.addEventListener("click", () => {
+      const reviewText = reviewTextarea.value.trim(); // 리뷰 텍스트 가져오기
+
+      // 유효성 검사
+      if (selectedRating === 0) {
+        alert("별점을 선택해주세요.");
+        return;
+      }
+
+      if (!reviewText) {
+        alert("리뷰 내용을 작성해주세요.");
+        return;
+      }
+
+      if (!currentPaymentId) {
+        alert("결제 정보가 없습니다.");
+        return;
+      }
+
+      // AJAX 요청으로 서버에 데이터 전송
+      fetch("/reviews/submit-review", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          paymentId: currentPaymentId, // paymentId 포함
+          rating: selectedRating,
+          review: reviewText,
+        }),
+      })
+              .then((response) => response.json())
+              .then((data) => {
+                if (data.success) {
+                  alert("리뷰가 성공적으로 제출되었습니다.");
+                  modal.style.display = "none"; // 모달 닫기
+                } else {
+                  alert("리뷰 제출에 실패했습니다. " + data.message);
+                }
+              })
+              .catch((error) => {
+                console.error("리뷰 제출 중 오류:", error);
+                alert("오류가 발생했습니다. 다시 시도해주세요.");
+              });
+    });
+  });
+
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const radioButtons = document.querySelectorAll("input[name='reviewStar']"); // 별점 radio 버튼
+    const selectedStarText = document.getElementById("selectedStarText"); // 텍스트 업데이트 대상
+
+    // radio 버튼 클릭 이벤트
+    radioButtons.forEach((radio) => {
+      radio.addEventListener("change", (event) => {
+        const selectedRating = event.target.value; // 선택한 별점
+        selectedStarText.textContent = `${selectedRating}`; // 텍스트 업데이트
+      });
+    });
+  });
+</script>
+</th:block>
+</body>
+</html>

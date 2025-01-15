@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link th:href="@{/css/LoginMain.css}" rel="stylesheet">
+  <th:block th:replace="~{'login/LoginMain' :: LoginMainScript}"></th:block>
+
+  <!-- JS, Popper.js, and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="login-wrap">
+  <div class="container-a">
+    <div class="login-area">
+      <a href="/" class="login-logo">
+        <img src="/img/log.png">
+      </a>
+      <div class="login">
+        <div class="login-top">
+          <h3>로그인</h3>
+          <p>등록한 계정이 없나요?
+            <a href="#">회원가입</a>
+          </p>
+          <div class="btn-group">
+            <button type="button" class="btn btn-outline-gray" onclick="location.href='EmailLogin.html'" >
+              <i class="ico i-mail"></i>
+              이메일로 로그인
+            </button>
+            <button type="button" class="btn btn-outline-gray" onclick="redirectToGoogle()">
+              <i class="ico i-google-log"></i>
+              구글 계정으로 로그인
+            </button>
+            <button type="button" class="btn btn-outline-gray-i" onclick="redirectToKakao()" >
+          <i class="ico i-kakao0kog"></i>
+              카카오 계정으로 로그인
+            </button>
+          </div>
+        </div>
+        <div class="login-bottom">
+          <img src="/img/sample-04-NHZETd1U.png">
+          <h6>
+            긱톡커에 가입함으로써 귀하는 긱톡커의
+            <a href="#" target="_blank">서비스 약관</a>
+            에 동의 하고 당사로부터 이메일을 받는 데 동의하게 됩니다. 당사가 귀하의 개인 데이터를 어떻게 사용하는지 알아보려면 개인
+            <a href="#" target="_blank">정보 보호정책</a>
+            을 읽어보시기 바랍니다.
+          </h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<th:block th:fragment="LoginMainScript">
+  <script>
+    function redirectToGoogle() {
+      const clientId = "" // Google OAuth2 Client ID
+      const redirectUri = 'http://localhost:8282/login/oauth2/code/google'; // Redirect URI 설정
+      const scope = 'email profile';
+      const authUrl = `https://accounts.google.com/o/oauth2/auth?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code&scope=${encodeURIComponent(scope)}`;
+
+      // Google 인증 URL로 리디렉션
+      window.location.href = authUrl;
+    }
+
+    function redirectToKakao() {
+      const clientId = ''// Kakao REST API 키
+      const redirectUri = 'http://localhost:8282/user/login/oauth2/code/kakao'; // Redirect URI 설정
+      const responseType = 'code';
+      const authUrl = `https://kauth.kakao.com/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=${responseType}`;
+
+      // Kakao 인증 URL로 리디렉션
+      window.location.href = authUrl;
+    }
+  </script>
+</th:block>
+</body>
+</html>

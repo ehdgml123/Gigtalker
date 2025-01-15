@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout1}">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link th:href="@{/css/eventDetail.css}" rel="stylesheet">
+</head>
+<body>
+<div class="content service-center" layout:fragment="content">
+  <div class="container">
+    <aside class="sc-sidebar">
+      <h4>고객센터</h4>
+      <ul class="sc-menu">
+        <li id="notice">
+          <a aria-current="page" href="" class="router-link-active router-link-exact-active">
+            공지사항
+          </a>
+        </li>
+        <li id="inquiry" >
+          <a href="/inquity" >1:1문의</a>
+        </li>
+        <li id="faq" class="active">
+          <a th:href="@{Custom/eventList}" >이벤트</a>
+        </li>
+      </ul>
+    </aside>
+    <div class="guide-detail">
+          <div class="detail-top">
+            <a class="back" href="#">
+              <i class="ico i-back"></i>
+              뒤로
+            </a>
+            <div class="detail-etc">
+              <button type="button" class="btn-pink-heart">
+                <i class="ico i-heart-pink"></i>
+                0
+              </button>
+              <button type="button" class="btn-heart">
+                <i class="ico i-heart-blue"></i>
+              </button>
+              <button type="button" class="btn-share open-modal">
+                <i class="ico i-share-blue"></i>
+              </button>
+            </div>
+          </div>
+         <div class="detail-header">
+           <h1>오픈기념 회원가입 쿠폰 지급 </h1>
+         </div>
+        <div class="detail-body">
+            <img src="/img/eventbody.jpg">
+          <div class="detail-text">
+               <div class="ck-content">
+                 <p>&nbsp;</p>
+                 <p style="text-align: center">
+                   <span class="text-huge" style="color: rgb(255,153,0)">
+                     <strong>긱톡커 오픈 기념</strong>
+                   </span>
+                 </p>
+                 <p style="text-align: center">
+                   <span class="text-huge" style="color: rgb(255,153,0)">
+                     <strong>★쿠폰 이벤트★</strong>
+                   </span>
+                 </p>
+                 <p style="text-align:center;">&nbsp;</p>
+                 <p style="text-align:center; font-size: 20px">긱톡커 재능마켓이 드디어 오픈했습니다!</p>
+                 <p style="text-align:center; font-size: 20px">여러분과 더욱 가까워지고픈 마음을 담아</p>
+                 <p style="text-align:center;">&nbsp;</p>
+                 <p style="text-align:center;">
+                   <span style="color: rgb(0, 0, 255); font-size: 23px;">
+                     <strong>가입하면 누구나</strong>
+                   </span>
+                 </p>
+                 <p style="text-align:center;">
+                   <span style="color: rgb(0, 0, 255); font-size: 23px;">
+                     <strong>모든 상품에 쓸 수 있는</strong>
+                   </span>
+                 </p>
+                 <p style="text-align:center;">
+                   <span style="color: rgb(0, 0, 255); font-size: 23px;">
+                     <strong>2,000원 할인 쿠폰을 드립니다!</strong>
+                   </span>
+                 </p>
+                 <p style="text-align:center;">
+                   <span class="text-big">&nbsp;</span>
+                 </p>
+                 <p style="text-align:center; font-size: 31px;">
+                   <span class="text-big">
+                     <strong>이벤트 기간</strong>
+                   </span>
+                 </p>
+                 <p style="text-align:center; font-size: 24px;">
+                   2025.1.10~
+                   <span  style="color: rgb(0, 0, 255);">
+                       <strong>12.31</strong>
+                   </span>
+                 </p>
+                 <p style="text-align:center;">&nbsp;</p>
+                 <p style="text-align:center; font-size: 31px;">
+                   <span class="text-big">
+                     <strong>사용 만료 기간</strong>
+                   </span>
+                 </p>
+                 <p style="text-align:center; font-size: 24px;">
+                   2026.1.25
+                   <br>
+                   &nbsp;
+                 </p>
+                 <p style="text-align:center; font-size: 31px;">
+                   <span class="text-big">
+                     <strong>발급 방법</strong>
+                   </span>
+                 </p>
+                 <p style="text-align:center; font-size: 20px;">회원가입 후&nbsp;</p>
+                 <p style="text-align:center; font-size: 20px;">마이페이지&gt; 받은쿠폰함&nbsp;</p>
+                 <p style="text-align:center; font-size: 20px;">* 마이페이지 접속 방법</p>
+                 <p style="text-align:center; font-size: 20px;">PC: 로그인 후 우측 상단 프로필&gt;마이페이지</p>
+                 <p style="text-align:center; font-size: 20px;">모바일: 로그인 후 하단의 제일 우측 아이콘 클릭</p>
+                 <p style="text-align:center; font-size: 20px;">&nbsp;</p>
+                 <p style="text-align:center; font-size: 20px;">
+                   <strong>아래 쿠폰코드를 입력합니다.</strong>
+                 </p>
+                 <p style="text-align:center; font-size: 31px;">
+                   <span class="text-huge" style="color:rgb(0,0,255);;">
+                     <strong>25678</strong>
+                   </span>
+                 </p>
+               </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

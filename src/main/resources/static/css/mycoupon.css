@@ -1,0 +1,353 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+:root {
+    --dropdown-placeholder: "Select an option";
+    --gt-info: #10A9FF;
+    --gt-success: #32C771;
+    --gt-warning: #FF9659;
+    --gt-error: #EB5757;
+    --gt-primary: #3B00CC;
+    --gt-secondary: #7B78FF;
+    --gt-write: #ffffff;
+    --gt-black-01: #000000;
+    --gt-black-02: #1D1D1D;
+    --gt-black-03: #282828;
+    --gt-gray-01: #333333;
+    --gt-gray-02: #4f4f4f;
+    --gt-gray-03: #828282;
+    --gt-gray-04: #bdbdbd;
+    --gt-gray-05: #e0e0e0;
+    --gt-gray-06: #f0f0f0;
+    --gt-gray-07: #f5f5f5;
+    --gt-gray-08: #FAFAFA;
+    --gt-primary-bg: #F4F3FD;
+    --gt-gray-bg: #F7F7FA;
+    --gt-sky-bg: #ECF5FB;
+    --gt-body-font-size: 16px;
+    --gt-body-font-weight: 400;
+    --gt-font-sans-serif: "NotoSansKR", sans-serif;
+    --gt-text-lg: 16px;
+    --gt-text-md: 14px;
+    --gt-text-sm: 13px;
+    --gt-text-mn: 12px;
+    --gt-shadow: 0px 4px 4px 0px rgba(0, 0, 0, .25);
+}
+
+
+
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+ul, li, ol{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.mypage {
+    padding: 68px 0 100px;
+}
+
+.container-A{
+    margin: 0 auto;
+    max-width: 100%;
+    width: 1700px;
+    height: 660px;
+}
+
+.mypage > .container{
+    display: flex;
+    gap: 60px;
+}
+
+.cs-sidedar{
+    flex: 0 0 auto;
+    width: 280px;
+}
+
+.mypage-profile {
+    padding: 28px 0;
+    position: relative;
+}
+
+.mypage-profile-top {
+    border-bottom: 5px solid #cccccc;
+    position: absolute;
+    top: -30px;
+    width: 100%;
+}
+
+
+.mypage-profile-top p {
+    align-content: center;
+    color: var(--gt-gray-01);
+    display: flex;
+    font-size: 20px;
+    font-weight: 700;
+    justify-content: space-between;
+    margin: 0 0 8px;
+}
+
+.mypage-profile-top p a {
+    color: var(--gt-secondary);
+    font-weight: 400;
+}
+
+.mypage-profile h5 {
+    font-size: 20px;
+    font-weight: 400;
+    margin: 12px 0;
+    text-align: center;
+}
+
+.mypage-profile button {
+    font-size: var(--gt-text-lg);
+    height: 40px;
+    margin: 0 auto;
+    width: 200px;
+}
+
+.btn-primary {
+    background: var(--gt-primary);
+    border: 1px solid var(--gt-primary);
+    color: var(--gt-write);
+}
+
+.btn {
+    border-radius: 6px;
+}
+
+.cs-sidedar>h5 {
+    border-bottom: 5px solid var(--gt-black-01);
+    font-size: 20px;
+    font-weight: 700;
+    padding: 0 0 16px;
+}
+
+.sc-menu {
+    display: flex;
+    flex-direction: column;
+    margin: 8px 0 0;
+}
+
+.sc-menu li {
+    border-bottom: 1px solid var(--gt-gray-05);
+}
+
+.sc-menu li.active a {
+    color: var(--gt-black-01);
+}
+
+.sc-menu li a {
+    color: var(--gt-gray-03);
+    display: block;
+    font-size: var(--gt-text-lg);
+    padding: 8px 16px;
+    position: relative;
+}
+
+.sc-menu li.active a:before {
+    background: #8437dd;
+    border-radius: 100px;
+    content: "";
+    display: inline-block;
+    height: 5px;
+    position: absolute;
+    top: 53%;
+    left: -1px;
+    transform: translateY(-50%);
+    width: 5px;
+}
+
+.mypage-content {
+    width: calc(100% - 340px);
+}
+
+.ec-sell-set h1 {
+    align-items: center;
+    color: var(--gt-gray-01);
+    display: flex;
+    font-size: 32px;
+    justify-content: space-between;
+    margin: 0 0 16px;
+    width: 100%;
+}
+
+.ec-sell-body {
+    margin: 12px 0 0;
+}
+
+.coupon {
+    border-top: 1px solid var(--gt-black-01);
+    padding: 24px 0 0;
+}
+
+.coupon-code {
+    align-items: center;
+    background: #f8f8f8;
+    display: flex;
+    gap: 12px;
+    padding: 28px 120px;
+}
+
+.input-group.horizontal {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 10px;
+}
+
+.coupon-code .input-group.horizontal label {
+    width: 224px;
+}
+
+
+
+.coupon-code .input-group.mn label {
+    font-size: 21px !important;
+}
+
+.input-group.mn input[type=text], .input-group.mn input[type=password], .input-group.mn input[type=number] {
+    font-size: 17px;
+    height: 50px;
+    padding: 0 12px;
+}
+
+.input-group input[type=text], .input-group input[type=password], .input-group input[type=number] {
+    background: var(--gt-write);
+    border: 1px solid var(--gt-gray-05);
+    border-radius: 6px;
+    color: var(--gt-gray-01);
+    font-size: 14px;
+    font-weight: 400;
+    height: 50px;
+    padding: 0 16px;
+    transition: all .5s;
+    width: 100%;
+}
+
+.coupon-code button {
+    height: 47px;
+    width: 172px;
+    font-size: 20px;
+}
+
+.coupon .default-tabs {
+    margin: 20px 0 0;
+}
+
+.default-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.coupon .default-tabs .tab-list {
+    border-bottom: 1px inset var(--gt-black-01);
+    position: relative;
+    z-index: 1;
+}
+
+.default-tabs .tab-list {
+    border-bottom: 1px solid #999999;
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+.coupon .default-tabs .tab-button.active {
+    background: var(--gt-write);
+    border-top: 1px solid var(--gt-black-01);
+    border-left: 1px solid var(--gt-black-01);
+    border-right: 1px solid var(--gt-black-01);
+    border-bottom: 1px solid var(--gt-write);
+}
+
+.coupon .default-tabs .tab-button {
+    background: var(--gt-gray-bg);
+    border: 1px solid var(--gt-gray-05);
+    border-bottom: 1px solid var(--gt-black-01);
+    font-size: 20px;
+    height: 62px;
+    position: relative;
+    top: 1px;
+    width: 168px;
+    z-index: 2;
+}
+
+.default-tabs .tab-button {
+    align-items: center;
+    background: none;
+    border: 0;
+    border-bottom: 2px solid var(--gt-write);
+    color: var(--gt-gray-03);
+    cursor: pointer;
+    font-size: var(--gt-text-md);
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    height: 36px;
+    width: 90px;
+}
+
+.default-tabs .tab-button.active {
+    border-bottom: 2px solid var(--gt-black-01);
+    color: var(--gt-black-03);
+    font-weight: 700;
+}
+
+.tab-content {
+    width: 100%;
+}
+
+.coupon table {
+    border-collapse: collapse;
+    border-top: 1px solid var(--gt-black-01);
+    width: 100%;
+}
+
+table {
+    caption-side: bottom;
+    border-collapse: collapse;
+}
+
+tbody, td, tfoot, th, thead, tr {
+    border-color: inherit;
+    border-style: solid;
+    border-width: 0;
+}
+
+.coupon table tr th {
+    border-bottom: 1px solid #999999;
+    color: var(--gt-gray-01);
+    font-size: 17px;
+    font-weight: 500;
+    padding: 12px 8px;
+    text-align: center;
+}
+
+.coupon table tr td:first-child {
+    text-align: left;
+}
+
+.coupon table tr td {
+    border-bottom: 1px solid #cccccc;
+    color: var(--gt-gray-01);
+    font-size: 17px;
+    padding: 12px 8px;
+    text-align: center;
+}

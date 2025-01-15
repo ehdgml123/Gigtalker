@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout1}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/css/ProductManagement.css}" rel="stylesheet">
+</head>
+<body>
+<div id="container" layout:fragment="content">
+    <div class="content expert-center">
+        <div class="container">
+            <aside class="sc-sidebar">
+                <div class="expert-profile">
+                    <h5 th:text="${userName}"></h5>
+                </div>
+                <h6>
+                    이달 수익금
+                    <span>0원</span>
+                </h6>
+                <ul class="sc-menu">
+                    <li id="center">
+                        <a aria-current="page" th:href="@{/expert/ExpertCenter}" class="router-link-active router-link-exact-active">
+                            센터홈
+                        </a>
+                    </li>
+                    <li id="sold-list">
+                        <a aria-current="page" href="#">
+                            판매관리
+                        </a>
+                    </li>
+                    <li id="product-management" class="active">
+                        <a aria-current="page" th:href="@{/expert/ProductManagement}">
+                            내 상품관리
+                        </a>
+                    </li>
+                </ul>
+            </aside>
+            <div class="ec-content">
+                <div class="ec-sell-set">
+                    <h1>내 상품관리 </h1>
+                    <div class="ec-sell-category">
+                        <ul>
+                            <li class="active">판매 (<span th:text="${productCount}"></span>)</li>
+                            <li class="">비승인 (0)</li>
+                            <li class="">임시중지 (0)</li>
+                            <li class="">임시저장 (0)</li>
+                            <li class="">심사중 (0)</li>
+                        </ul>
+                        <a aria-current="page" class="router-link-active router-link-exact-active" th:href="@{/expert/main}">
+                            <button type="button" class="btn btn-primary btn-sm">새상품등록</button>
+                        </a>
+                    </div>
+                    <div class="ec-sell-body">
+                        <div class="ec-sell-list">
+                             <ul>
+                                 <li th:each="product : ${productList}">
+                                     <div class="ec-product-item">
+                                         <div class="ec-product-item-img">
+                                             <img th:src="${product.productionServiceImgs != null && product.productionServiceImgs.size() > 0 ? product.productionServiceImgs[0].imgUrl : '/images/default.png'}" alt="Product Image">
+                                         </div>
+                                         <div class="ec-product-item-text">
+                                             <h5 th:text="${product.title}">상품 제목</h5>
+                                             <h6 th:text="${product.basePrice} + '원 ~'">상품 가격</h6>
+                                         </div>
+                                     </div>
+                                 </li>
+                             </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

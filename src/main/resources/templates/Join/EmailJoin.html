@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>이메일 회원가입</title>
+  <link th:href="@{/css/mailJoin.css}" rel="stylesheet">
+
+  <!-- JS, Popper.js, and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="login-wrap">
+  <div class="container-a">
+    <div class="login-area">
+      <a href="/" class="login-logo">
+        <img src="/img/log.png" alt="Logo">
+      </a>
+      <div class="login-email">
+        <a class="back" style="cursor: pointer" onclick="history.back()">
+          <i class="ico i-back"></i>
+          뒤로가기
+        </a>
+        <div class="email-top">
+          <h3>이메일 회원가입</h3>
+
+          <!-- 성공 메시지 표시 (모달) -->
+          <div th:if="${successMessage}" class="modal" id="successModal">
+            <div class="modal-content">
+              <span class="close-modal" onclick="closeModal()">&times;</span>
+              <p th:text="${successMessage}"></p>
+            </div>
+          </div>
+
+          <!-- 회원가입 폼 -->
+          <form role="form" method="post" th:action="@{/join/EmailJoin.html}" th:object="${user}">
+            <div class="input-wrap">
+              <div class="input-group md">
+                <label for="text01">이메일</label>
+                <input type="email" id="text01" name="email" th:field="*{email}" placeholder="이메일을 입력하세요" required>
+                <div th:if="${#fields.hasErrors('email')}" class="error" th:errors="*{email}"></div>
+              </div>
+              <div class="input-group md">
+                <label for="pwInput">비밀번호</label>
+                <input type="password" id="pwInput" name="password" th:field="*{password}" placeholder="비밀번호를 입력하세요" autocomplete="on" required>
+                <div th:if="${#fields.hasErrors('password')}" class="error" th:errors="*{password}"></div>
+              </div>
+              <div class="check-wrap">
+                <div class="check-group">
+                    <input type="checkbox" id="lengthVerify">
+                   <label style="cursor: default">
+                     영문 1자 이상
+                   </label>
+                </div>
+                <div class="check-group">
+                  <input type="checkbox" id="specialVerify">
+                  <label style="cursor: default">
+                    특수문자 1개 이상
+                  </label>
+                </div>
+                <div class="check-group">
+                  <input type="checkbox" id="numberVerify">
+                  <label style="cursor: default">
+                    숫자 1개 이상
+                  </label>
+                </div>
+                <div class="check-group">
+                  <input type="checkbox" id="pwLengthVerify">
+                  <label style="cursor: default">
+                    영문 1자 이상
+                  </label>
+                </div>
+              </div>
+              <div class="input-group md">
+                <label for="nameInput">이름</label>
+                <input type="text" id="nameInput" name="name" th:field="*{name}" placeholder="홍길동">
+                <p>성명이나 회사명을 사용하여 신뢰를 구축하세요.</p>
+                <div th:if="${#fields.hasErrors('name')}" class="error" th:errors="*{name}"></div>
+              </div>
+              <div class="input-group md">
+                <label for="phoneInput">핸드폰 인증</label>
+                <input type="text" id="phoneInput" name="phone" th:field="*{phone}" placeholder="핸드폰을 입력하세요" required>
+                <button type="button" class="open-modal" id="sendSmsButton">인증</button>
+              </div>
+              <h3>인증 코드를 입력해주세요</h3>
+              <div class="number-group">
+                <input id="certiNum1" type="text" maxlength="1" class="input-code" pattern="[0-9]" autofocus="">
+                <input id="certiNum2" type="text" maxlength="1" class="input-code" pattern="[0-9]">
+                <input id="certiNum3" type="text" maxlength="1" class="input-code" pattern="[0-9]">
+                <input id="certiNum4" type="text" maxlength="1" class="input-code" pattern="[0-9]">
+              </div>
+              <div class="btn-groupl">
+                <button type="button" id="submitCodeButton" class="btn btn-xl btn-primary">코드 제출</button>
+              </div>
+              <!-- 숨겨진 필드: 인증 코드 -->
+              <input type="hidden" id="phoneVerificationCode" name="phoneVerificationCode">
+            </div>
+            <label for="roleSelection">틱톡커에 무슨 일로 오셨나요?</label>
+            <ul class="create-account-list">
+              <li>
+                <a href="javascript:void(0);" onclick="selectRole(event, 'SERVICE_PURCHASE')">
+                  <h6>서비스 구매</h6>
+                  <p>
+                    전문가 리스트 페이지로
+                    <br>
+                    이동합니다.
+                  </p>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" onclick="selectRole(event, 'EXPERT_REGISTRATION')">
+                  <h6>전문가 등록</h6>
+                  <p>
+                    전문가 등록 페이지로
+                    <br>
+                    이동합니다.
+                  </p>
+                </a>
+              </li>
+            </ul>
+            <!-- 숨겨진 필드에 role 값을 저장 -->
+            <input type="hidden" th:field="*{role}" id="selectedRole" required>
+            <div th:if="${#fields.hasErrors('role')}" class="error" th:errors="*{role}"></div>
+            <div class="btn-group">
+              <button type="submit" class="btn btn-black">가입하기</button>
+            </div>
+          </form>
+        </div>
+        <div class="login-bottom">
+          <h6>
+            긱톡커에 가입함으로써 귀하는 긱톡커의
+            <a href="#" target="_blank">서비스 약관</a>
+            에 동의하고 당사로부터 이메일을 받는 데 동의하게 됩니다. 당사가 귀하의 개인 데이터를 어떻게 사용하는지 알아보려면 개인
+            <a href="#" target="_blank">정보 보호정책</a>
+            을 읽어보시기 바랍니다.
+          </h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<script>
+  // 역할 선택
+  function selectRole(event, role) {
+    document.getElementById('selectedRole').value = role;
+
+    const links = document.querySelectorAll('.create-account-list a');
+    links.forEach(link => link.classList.remove('selected'));
+    event.currentTarget.classList.add('selected');
+  }
+
+  // SMS 전송 버튼
+  document.getElementById('sendSmsButton').addEventListener('click', function () {
+    const phoneNumber = document.getElementById('phoneInput').value;
+
+    if (!phoneNumber) {
+      alert('핸드폰 번호를 입력해주세요.');
+      return;
+    }
+
+    fetch('/api/sms/send', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: `phoneNumber=${phoneNumber}`,
+    })
+            .then(response => response.text())
+            .then(data => alert(data))
+            .catch(error => alert('SMS 전송에 실패했습니다.'));
+  });
+
+  // 코드 제출 버튼
+  document.getElementById('submitCodeButton').addEventListener('click', function () {
+    const phoneNumber = document.getElementById('phoneInput').value;
+    const codeInputs = document.querySelectorAll('.input-code');
+    let code = '';
+
+    codeInputs.forEach(input => code += input.value.trim());
+
+    if (!phoneNumber || code.length !== 4) {
+      alert('핸드폰 번호와 4자리 인증번호를 정확히 입력해주세요.');
+      return;
+    }
+
+    fetch('/api/sms/verify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: `phoneNumber=${phoneNumber}&code=${code}`,
+    })
+            .then(response => response.text())
+            .then(data => {
+              if (data === '인증 성공') {
+                document.getElementById('phoneVerificationCode').value = code;
+                alert('인증이 완료되었습니다.');
+              } else {
+                alert('인증 실패: 잘못된 인증번호입니다.');
+                codeInputs.forEach(input => input.value = '');
+              }
+            })
+            .catch(error => alert('인증번호 검증에 실패했습니다.'));
+  });
+
+  // 폼 제출 시 인증 확인
+  document.querySelector('form').addEventListener('submit', function (e) {
+    const verificationCode = document.getElementById('phoneVerificationCode').value;
+
+    if (!verificationCode) {
+      e.preventDefault();
+      alert('핸드폰 인증을 완료해주세요.');
+    }
+
+  });
+
+// input 자동 이동
+  const inputs = document.querySelectorAll('.input-code');
+
+  // 각 입력 필드에 이벤트를 추가합니다.
+  inputs.forEach((input, index) => {
+    input.addEventListener('input', (event) => {
+      const value = event.target.value;
+
+      // 입력 값이 1자리 숫자이고 다음 필드가 있다면 다음 필드로 포커스 이동
+      if (value.length === 1 && index < inputs.length - 1) {
+        inputs[index + 1].focus();
+      }
+    });
+
+    // Backspace로 이전 필드로 이동하도록 추가 이벤트 처리
+    input.addEventListener('keydown', (event) => {
+      if (event.key === 'Backspace' && input.value === '' && index > 0) {
+        inputs[index - 1].focus();
+      }
+    });
+  });
+
+  /*비밀번호 체크박스*/
+  const pwInput = document.getElementById("pwInput");
+  const lengthVerify = document.getElementById("lengthVerify");
+  const specialVerify = document.getElementById("specialVerify");
+  const numberVerify = document.getElementById("numberVerify");
+  const pwLengthVerify = document.getElementById("pwLengthVerify");
+
+  pwInput.addEventListener("input", () => {
+    const value = pwInput.value;
+
+    // 조건 확인
+    const hasLength = value.length >= 8;
+    const hasUppercase = /[A-Za-z]/.test(value);
+    const hasNumber = /\d/.test(value);
+    const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(value);
+
+    // 체크박스 업데이트
+    lengthVerify.checked = hasUppercase;
+    specialVerify.checked = hasSpecial;
+    numberVerify.checked = hasNumber;
+    pwLengthVerify.checked = hasLength;
+  });
+</script>
+</html>

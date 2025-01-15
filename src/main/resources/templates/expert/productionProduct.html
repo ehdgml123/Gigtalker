@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link th:href="@{/css/productionProduct.css}" rel="stylesheet">
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <th:block th:replace="~{'expert/productionProduct' :: productionProductScript}"></th:block>
+
+
+</head>
+<th:block th:fragment="productionProductScript">
+  <script>
+    $(document).ready(function () {
+      // 카테고리 데이터
+      const categoryOptions = {
+        "디자인": ['로고/브랜드', '온라인광고', '웹/앱 디자인', '인쇄홍보물', '캐릭터/일러스트'],
+        "IT 개발": ['웹사이트 플랫폼', '보안/지원', '기타', '웹사이트', '응용 프로그램', '소프트웨어 개발'],
+        "영상/사진": ['모델/배우', '기타', '영상촬영/드론', '영상편집/후반작업', '사진촬영/보정', '소셜/마케팅 영상'],
+        "세무/법사": ['특허/상표', '세무/회계', '노무상담', '법률']
+      };
+
+      // 상위 선택창과 하위 선택창
+      const mainSelect = $('#main-category');
+      const subSelect = $('#sub-category');
+
+      // 상위 카테고리 변경 이벤트
+      mainSelect.on('change', function () {
+        const selectedValue = $(this).val();
+
+        // 하위 카테고리 초기화
+        subSelect.empty().append('<option value="" disabled selected>세부 항목을 선택하세요</option>');
+
+        if (categoryOptions[selectedValue]) {
+          // 선택한 상위 카테고리에 따라 옵션 추가
+          categoryOptions[selectedValue].forEach(item => {
+            subSelect.append(`<option value="${item}">${item}</option>`);
+          });
+          subSelect.prop('disabled', false); // 활성화
+        } else {
+          subSelect.prop('disabled', true); // 비활성화
+        }
+      });
+    });
+
+    if (!window.contentLoadedExecuted) {
+      document.addEventListener('DOMContentLoaded', function () {
+        console.log('DOMContentLoaded 실행됨');
+
+        const fileUpload = document.getElementById('file-upload-input');
+        const previewContainer = document.getElementById('image-preview-container'); // 변경된 컨테이너
+
+        if (fileUpload) {
+          // 기존 이벤트 리스너 등록
+          fileUpload.addEventListener('change', function (event) {
+            const files = event.target.files;
+            const previewContainer = document.getElementById('image-preview-container'); // 별도의 컨테이너
+            previewContainer.innerHTML = ''; // 이전 미리보기 제거
+
+            if (files && files.length > 0) {
+              Array.from(files).forEach(file => {
+                if (file.type.startsWith('image/')) {
+                  const reader = new FileReader();
+
+                  reader.onload = function (e) {
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.alt = '선택된 이미지';
+                    img.style.width = '100%'; // 미리보기 크기 조정
+                    img.style.marginRight = '10px';
+                    previewContainer.appendChild(img);
+                  };
+
+                  reader.readAsDataURL(file);
+                } else {
+                  alert('이미지 파일만 선택할 수 있습니다.');
+                }
+              });
+            } else {
+              alert('이미지 파일을 선택해주세요.');
+            }
+          });
+        }
+      });
+
+      // 중복 실행 방지 플래그 설정
+      window.contentLoadedExecuted = true;
+    }
+  </script>
+</th:block>
+<body>
+<div class="header">
+  <div class="header-top type2">
+    <div class="container-md">
+      <a href="/" class="header-logo">
+        <img src="/img/logo-BA2RnynS.png">
+        제작상품
+      </a>
+    </div>
+  </div>
+</div>
+<div class="expert-register-step">
+  <div class="container-md">
+    <ul>
+      <li class="active">
+        <span>1</span>
+        개요
+      </li>
+      <li >
+        <span>2</span>
+        등록완료
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="content">
+  <div class="new-product-wrap">
+    <div class="container-md">
+      <form method="post" action="/expert/productionProduct" enctype="multipart/form-data" th:object="${productServiceDto}">
+        <input type="hidden" th:field="*{id}">
+
+        <div class="product-input-area">
+          <div class="row">
+            <div class="col-4">
+              <h6>제목</h6>
+              <p>제목은 구매자가 서비스를 검색하는데 사용할 가능성이 있는 키워드를 포함하는것이 중요합니다.</p>
+            </div>
+            <div class="col-8">
+              <div class="text-group md h-80">
+                <textarea name="title" th:field="*{title}" cols="30" rows="10" maxlength="50" placeholder="서비스의 제목을 작성해주세요"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+              <h6>카테고리</h6>
+              <p>서비스의 카테고리와 하위 카테고리를 선택하세요</p>
+            </div>
+            <div class="col-8">
+              <div class="product-category-group">
+                <div class="Mainselect-group">
+                  <select name="category" id="main-category" th:field="*{category}" required>
+                    <option value="-1" disabled selected>카테고리를 선택하세요</option>
+                    <option value="디자인">디자인</option>
+                    <option value="IT 개발">IT 개발</option>
+                    <option value="영상/사진">영상/사진</option>
+                    <option value="세무/법사">세무/법사</option>
+                  </select>
+                </div>
+                <div class="subselect-group">
+                  <select name="subCategory" id="sub-category" th:field="*{subCategory}" disabled required>
+                    <option value="" disabled selected>카테고리를 선택하세요</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+              <h6>서비스 설명</h6>
+              <p>전문가 소개 (경력과 이력), 작업 가능 분야, 작업 제공 절차, 서비스 특징에 대해서 고객이 이해하기 쉽도록 정확하게 작성해 주세요.</p>
+            </div>
+            <div class="col-8">
+              <div class="text-group md h-80">
+                <textarea name="description" th:field="*{description}" cols="30" rows="5" maxlength="500" placeholder="서비스 설명 입력" required></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+              <h6>기본금액</h6>
+              <p>최종금액은 채팅을 통해서 가격을 협의하고 제안할 수 있습니다.</p>
+            </div>
+            <div class="col-8">
+              <div class="input-group">
+                <div class="input-area">
+                  <input  name="basePrice" th:field="*{basePrice}" type="text" placeholder="기본금액(VAT 별도)">
+                  <span>원</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+              <h6>최대 작업 기간</h6>
+              <p>예상되는 최대한의 기간을 작성해주세요작업완료시간을 초과하게 되면 불이익이발생할 수 있습니다.</p>
+            </div>
+            <div class="col-8">
+              <div class="input-group">
+                <div class="input-area">
+                  <input type="text"  name="maxWorkingDays" th:field="*{maxWorkingDays}">
+                  <span>일</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+              <h6>무료 수정 횟수</h6>
+              <p>고객 요청시 무료로 수정할 수 있는횟수를 선택해주세요.</p>
+            </div>
+            <div class="col-8">
+              <div class="select-group" style="position: relative; left: 320px">
+                <select name="freeRevisions" th:field="*{freeRevisions}"  required>
+                  <option value="" disabled selected>수정횟수 선택</option>
+                  <option value="-1">수정없음</option>
+                  <option value="999">무제한</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+              <h6>대화방법</h6>
+              <p>고객과 원하는 소통방식을 선택해주세요</p>
+            </div>
+            <div class="col-8">
+              <div class="select-group" style="position: relative; left: 320px">
+                <select name="communicationMethod" th:field="*{communicationMethod}" required>
+                  <option value="챗팅">챗팅</option>
+                  <option value="전화">전화</option>
+                  <option value="대면">대면</option>
+                  <option value="방문">방문</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+              <h6>메인 이미지 ( 필수 )</h6>
+              <p>최적의 이미지 크기</p>
+              <ul>
+                <li>1280x769픽셀을 권장합니다.</li>
+                <li>최소 712x430픽셀.</li>
+                <li>최대 크기 3MB</li>
+              </ul>
+            </div>
+            <div class="col-8">
+              <div class="product-img-group-wrap">
+                <div class="product-img-group" id="image-preview">
+                  <!-- th:field 사용 -->
+                  <input type="file" th:field="*{productImgFileList}" id="file-upload-input" accept="image/*" multiple required>
+                  <label for="file-upload-input" class="btn-img-upload">
+                    <i class="ico i-product-img-sample"></i>
+                    <p style="margin-left: 50px">
+                      사진을 드래그 앤 드롭하거나
+                      <br>
+                      찾아보세요.
+                    </p>
+                  </label>
+                  <!-- 별도의 이미지 미리보기 컨테이너 추가 -->
+                  <div id="image-preview-container"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="btn-group">
+              <button type="submit" id="uploadBtn" class="btn btn-primary" style="position: relative; left: 730px">등록하기</button>
+              <div id="uploadResult"></div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+</html>

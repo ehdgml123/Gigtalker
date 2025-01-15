@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <th:block th:replace="~{'fragments/header' :: headerScript}"></th:block>
+</head>
+<body>
+<div th:fragment="header">
+    <div class="header-wrap">
+        <div class="header-topwrap">
+            <div class="header-top">
+                <div class="container">
+                    <a href="/" class="router-link-active router-link-exact-active header-logo">
+                        <img th:src="@{/img/log.png}" alt="Logo">
+                    </a>
+                    <div class="input-search">
+                        <input type="text" placeholder="어떤 전문가를 찾으시나요?">
+                        <button type="button">
+                            <i class="ico i-search-p"></i>
+                        </button>
+                    </div>
+                    <ul class="header-top-right">
+                        <li class="language open-modal">
+                            <i class="ico i-language"></i>
+                            한국어
+                        </li>
+
+                        <!-- 비로그인 상태 -->
+                        <li th:if="${!isLoggedIn}">
+                            <a th:href="@{/login/loginMain}">로그인</a>
+                        </li>
+                        <li th:if="${!isLoggedIn}">
+                            <button class="btn btn-secondary btn-mini">
+                                <a th:href="@{/join/joinMain}">회원가입</a>
+                            </button>
+                        </li>
+
+                        <!-- 로그인 상태 -->
+                        <li th:if="${isLoggedIn}">
+                            <a th:href="@{/order-management}">구매관리</a>
+                        </li>
+                        <li th:if="${isLoggedIn}">
+                            <div class="dropdown-group">
+                                <div class="dropdown-list-wrap header-user">
+                                    <button class="dropdown-button" id="userDropdownButton" aria-haspopup="true" aria-expanded="false">
+                                        <div class="user-phone" style="background: 0% 0% / cover rgb(129, 118, 211) !important; pointer-events: none;">
+                                            <!-- 사용자 이름 표시 -->
+                                            <p th:text="${userName}" class="first-letter"></p>
+                                        </div>
+                                    </button>
+                                    <ul id="headerUserMenu" class="dropdown-list" aria-labelledby="userDropdownButton">
+                                        <li>
+                                            <a href="#" class="link-area">프로필 관리</a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/EditInformation}" class="link-area">계정정보</a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/order-management}" class="link-area">구매관리</a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/UserMyPage}" class="link-area">마이페이지</a>
+                                        </li>
+                                        <li th:if="${userRoles != null and #lists.contains(userRoles, 'EXPERT_REGISTRATION')}">
+                                            <a th:href="@{/}" class="link-area">구매 관리</a>
+                                        </li>
+                                        <hr>
+                                        <li th:if="${userRoles != null and #lists.contains(userRoles, 'EXPERT_REGISTRATION')}">
+                                            <a th:href="@{/expert/ExpertCenter}" class="link-area">전문가 센터</a>
+                                        </li>
+                                        <li>
+                                            <i class="ico i-logout"></i>
+                                            <a th:href="@{/logout}" class="link-area">로그아웃</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="header-category">
+            <div class="container">
+                <ul>
+                    <li class="all-category">
+                        <i class="ico i-category"></i>
+                        전체카테고리
+                    </li>
+                    <li><a href="#" style="cursor: pointer">영상/사진</a></li>
+                    <li><a href="#" style="cursor: pointer">IT 개발</a></li>
+                    <li><a href="#" style="cursor: pointer">문서/번역</a></li>
+                    <li><a href="#" style="cursor: pointer">디자인</a></li>
+                    <li><a href="#" style="cursor: pointer">생활서비스</a></li>
+                    <li><a href="#" style="cursor: pointer">비지니스</a></li>
+                    <li><a href="#" style="cursor: pointer">학습/취업</a></li>
+                    <li><a href="#" style="cursor: pointer">음악/오디오</a></li>
+                    <li><a href="#" style="cursor: pointer">상담</a></li>
+                    <li><a href="#" style="cursor: pointer">세무/법무</a></li>
+                    <li><a href="#" style="cursor: pointer">기타</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<th:block th:fragment="headerScript">
+    <!-- Scripts for header -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const dropdownButton = document.getElementById('userDropdownButton');
+            const dropdownMenu = document.getElementById('headerUserMenu');
+
+            dropdownButton.addEventListener('click', function () {
+                if (dropdownMenu.style.display === 'none' || dropdownMenu.style.display === '') {
+                    dropdownMenu.style.display = 'block';
+                } else {
+                    dropdownMenu.style.display = 'none';
+                }
+            });
+
+            document.addEventListener('click', function (event) {
+                if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                    dropdownMenu.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</th:block>
+</body>
+</html>

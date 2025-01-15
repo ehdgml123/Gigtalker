@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout1}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/css/eventList.css}" rel="stylesheet">
+</head>
+<body>
+<div class="content service-center" layout:fragment="content">
+    <div class="container">
+        <aside class="sc-sidebar">
+            <h4>고객센터</h4>
+            <ul class="sc-menu">
+                <li id="notice">
+                    <a aria-current="page" href="" class="router-link-active router-link-exact-active">
+                        공지사항
+                    </a>
+                </li>
+                <li id="inquiry" >
+                    <a href="/inquity" >1:1문의</a>
+                </li>
+                <li id="faq" class="active">
+                    <a th:href="@{Custom/eventList}" >이벤트</a>
+                </li>
+            </ul>
+        </aside>
+        <div class="sc-content">
+            <h1>이벤트
+                <div class="input-search2 type2">
+                    <input type="text" placeholder="검색">
+                </div>
+            </h1>
+            <div class="event-list">
+                <div class="row">
+                    <div class="col-4">
+                        <a th:href="@{/eventDetail}">
+                            <div class="guide-item">
+                                <div class="guide-item-img"></div>
+                                <p>완료</p>
+                                <h5>오픈기념 회원가입 쿠폰 지급 </h5>
+                                <h6>
+                                    긱톡커 오픈 기념★쿠폰 이벤트★긱톡커 재능마켓이 드디어 오픈했습니다!여러분과 더욱 가까워지고픈 마음을 담아가입하면 누구나모든 상품에 쓸 수 있는2,000원 할인 쿠폰을 드립니다!이벤트 기간2024.10.14~12.31사용 만료 기간2025.1.31발급 방법회원가입 후마이페이지 받은쿠폰함* 마이페이지 접속 방법PC: 로그인 후 우측 상단 프로필마이페이지모바일: 로그인 후 하단의 제일 우측 아이콘 클릭아래 쿠폰코드를 입력합니다.jPLjJQ369z사용 방법결제 시, 쿠폰/캐시에서 적용 가능합니다.사용가능한 쿠폰항목에서사용하려는 쿠폰을 선택해주세요.
+                                </h6>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
