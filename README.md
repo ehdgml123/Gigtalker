@@ -114,3 +114,10 @@
      ![ezgif com-video-to-gif-converter (2)](https://github.com/user-attachments/assets/414456cd-250a-45b8-997f-0c5327edb362)
 
        
+  * **제작상품 결제하기**
+  *  상품 상세페이지 로 접속하면 `바로 구매` 버튼 을 클릭하면 `결제 페이지` 로 이동한다.
+  *  `결제하기` 를 누르면 `iamport API` 기능이 실행 되면서 `Kg 이니시스` 결제창 이 나온다.
+       결제 후 성공하면 `결제가 완료되었습니다. 결제번호` 가 나오고 `결제 정보 저장 성공` 도 나온다
+        결제 확인하는 방법 은 마이페이지 `결제내역`, `구매관리` 에 추가 가 되어 확인 할 수 있다.
+
+     ![online-video-cutter com-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/146cf20f-3454-4a66-a330-a0552b64651f)
