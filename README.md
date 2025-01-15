@@ -104,7 +104,7 @@
   ![kakaologin-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/4b0ca0c5-316b-4961-94f8-f7bfb4a38be2)
 
 
-  * **서비스 제작 상품 등록 **
+ * **제작상품 등록하기**
    * 전문가 센터 에서 상품등록하기 누른 후 지금 등록하기 버튼 을 클릭하면 상품 종류 3가지 가 나온다.
      전문가 가 원하는 상품을 정하고 제작상품 을 등록 하고 싶으면 `제작상품` 시작 하기 누르면 등록 페이지로 이동한다.
    * 입력 후 이미지 는 미리보기 기능 을 추가해  이미지 를 미리 볼 수 있다. 등록 후, 성공 하며 메인페이지 로 이동한다.
@@ -121,3 +121,39 @@
         결제 확인하는 방법 은 마이페이지 `결제내역`, `구매관리` 에 추가 가 되어 확인 할 수 있다.
 
      ![online-video-cutter com-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/146cf20f-3454-4a66-a330-a0552b64651f)
+
+   * **임시비밀번호 발급**
+ *  이메일 로그인 하단 `비밀번호 찾기` 를 누르면 비밀번호 찾는 페이지 로 이동한다. 
+ *  만든 계정 이메일 을 입력 하고 `이메일 로 임시 비밀번호 찾기` 를 클리하면 `GmailAPI` 기능 으로  Gmail 임시비밀번호 를 받을수 있다.
+ *  임시비밀번호 를 발급 받은 번로 호 로그인 하면 성공적으로 로그인 이 된다.
+
+   ![online-video-cutter com-ezgif com-video-to-gif-converter (1)](https://github.com/user-attachments/assets/db9e7b3b-8595-469c-a36a-2cb3bca4dcf2)
+
+   
+ * **리뷰작성**
+ * `마이페이지` 에서 `구매내역` 에 보면 구매 리스트에 `리뷰작성` 이 있다.
+ * `리뷰작성` 클릭 하면 리뷰작성 하는 창 이 나온다.
+ * `별` 을 클릭하면 클릭한 수 만큼 별 이 채워지고 옆에 숫자도 추가 된다. 리뷰 작성 후 `제출하기` 누르면
+   `리뷰가 성공적으로 제출되었습니다` 라고 모달 창이 나온다.
+ * 해당하는 상품 상세페이지 에 들어가면 리뷰 가 추가 되어있다.
+
+   ![ezgif com-video-to-gif-converter (1)](https://github.com/user-attachments/assets/4b0d6c5c-af17-4a33-b62c-9b7b448c2a65)
+
+ * **쿠폰발급**
+ * 고객센터 에 이벤트 페이지 에 쿠폰코드 가 있다. 그 코드 를 마이페이지 `받은 쿠폰함` 에 들어가 이벤트 페이지 에 있는 쿠폰코드
+   를 입력하고 일치 하면 받은쿠폰함 에 추가 가 된다.
+
+   ![ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/e2fd5141-66a4-4980-aed0-ce9fcb012f93)
+
+
+ * **문의챗봇**
+ * `openAI` , `SpringAI` 를 이용하여 문의챗봇 기능을 추가하였다.
+ * 메이페이지 하단 오른쪼에 파란색 동그라미 를 선택하면 챗팅창 이 나온다
+ * `긱톡커 결제 어떻게` 질문하면 자동적 으로 답볍이 생성된다.
+
+![ezgif com-video-to-gif-converter (2)](https://github.com/user-attachments/assets/c78ca172-b510-4fea-b076-f18fa2f79ba9)
+
+## 🌄 개선사항
+- 제작 진행도 추가
+- 제작 완료 알림설정 기능 개선
+     
