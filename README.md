@@ -101,4 +101,16 @@
  * **소셜 로그인**
   * `로그인` 을 통해 나온 로그인 창에서 `카카오 로그인`을 클릭하여 카카오 계정을 통해 로그인 할 수 있다.
 
-      
+  ![kakaologin-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/4b0ca0c5-316b-4961-94f8-f7bfb4a38be2)
+
+
+  * **서비스 제작 상품 등록 **
+   * 전문가 센터 에서 상품등록하기 누른 후 지금 등록하기 버튼 을 클릭하면 상품 종류 3가지 가 나온다.
+     전문가 가 원하는 상품을 정하고 제작상품 을 등록 하고 싶으면 `제작상품` 시작 하기 누르면 등록 페이지로 이동한다.
+   * 입력 후 이미지 는 미리보기 기능 을 추가해  이미지 를 미리 볼 수 있다. 등록 후, 성공 하며 메인페이지 로 이동한다.
+     선택한 `카테고리` 에 들어가면 상품 이 추가 가 된것을 볼 수 있다.
+
+     ![ezgif com-video-to-gif-converter (1)](https://github.com/user-attachments/assets/37d2cf5c-94ca-470c-a7d9-6c974e8e7ecf)
+     ![ezgif com-video-to-gif-converter (2)](https://github.com/user-attachments/assets/414456cd-250a-45b8-997f-0c5327edb362)
+
+       
