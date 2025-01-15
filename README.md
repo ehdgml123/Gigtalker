@@ -30,11 +30,13 @@
 
 
 ## 🔧 기술 스택
-- API : `Kakao API`, `google`, `Gmail`, `OpenAI`, `Coolsms`, `iamport`
+- API : `Kakao API`, `google`, `Gmail`, `OpenAI`, `Coolsms`, `iamport`, `KG이니시스`
 - Language : `JAVA(17)`, `JavaScript(1.5)`
-- Library & Framework : `SpringBoot`, `IntelliJ IDEA`, `SpringAI` `Spring Date JPA`
+- Library & Framework : `SpringBoot`, `Thymeleaf`, `SpringAI` `Spring Date JPA`
+- Development Tool : `IntelliJ IDEA`
 - Database : `Oracle(21g)`
-- ETC : `Git`
+- Server : `Tomcat`
+- Source Code Management : `Git`
 
  ## 👾 프로젝트 설계, 구현 📂 PPT 📂 (ERD, USECASE)
  프로젝트 설계, 구현, PPT
