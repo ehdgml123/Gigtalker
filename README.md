@@ -95,5 +95,7 @@
  * **회원가입, 로그인**
  * `로그인` 옆의 `회원가입`을 클릭하면 회원가입 창이 나타난다. `비밀번호`를 입력하면, 바로 밑에 체크박스 랑 글자 색상변경 이랑 줄이 생긴다.
  *  핸드폰 을 입력 후 옆에 `인증` 을 누르면 Coolsms API 를 통핸 핸드폰 에 인증번호 가 전송된다.
+ 
+ ![ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/23dd4029-40c0-4d77-98eb-bc0967261520)
 
       
