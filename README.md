@@ -27,7 +27,7 @@
 
 ## 🙋‍♀️ 소개
 - LEE DONGHEE <a href="https://github.com/ehdgml123"><img src="https://img.shields.io/badge/GitHub-181717?style=plastic&logo=GitHub&logoColor=white"></a>
-<img src="https://img.shields.io/badge/Kotlin-7F52FF?style=flat-square&logo=Kotlin&logoColor=white"/>
+ # 기술 스텍
 
 ## 🔧 기술 스택
 - API : `Kakao API`, `google`, `Gmail`, `OpenAI`, `Coolsms`, `iamport`, `KG이니시스`
