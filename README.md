@@ -5,7 +5,7 @@
 </h1>
 <h1 align="center">서비스 의뢰 및 프리랜서 기술 과 서비스 제공 - 긱톡커</h1>
 
-##목차
+## 목차
 
   - [개요](https://github.com/ehdgml123/Gigtalker#-개요)
 
@@ -26,6 +26,9 @@
 - 개발 기간 : 24/12/24 ~ 25/01/14
 
 ## 🙋‍♀️ 소개
+
+ ![KakaoTalk_20250105_111053276](https://github.com/user-attachments/assets/eba648b2-7df0-4534-8c14-4d7c53b9b907)
+
 - LEE DONGHEE <a href="https://github.com/ehdgml123"><img src="https://img.shields.io/badge/GitHub-181717?style=plastic&logo=GitHub&logoColor=white"></a>
 
 ## 🔧 기술 스택
