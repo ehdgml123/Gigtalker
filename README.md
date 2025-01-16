@@ -29,7 +29,7 @@
 
 <img src="https://github.com/user-attachments/assets/eba648b2-7df0-4534-8c14-4d7c53b9b907" width="200" height="200" />
 
-- LEE DONGHEE <a href="https://github.com/ehdgml123"><img src="https://img.shields.io/badge/GitHub-181717?style=plastic&logo=GitHub&logoColor=white"></a>
+이동희 LEE DONGHEE <a href="https://github.com/ehdgml123"><img src="https://img.shields.io/badge/GitHub-181717?style=plastic&logo=GitHub&logoColor=white"></a>
 #### :email:E-mail 
   zee0541@naver.com
 #### :pencil2:TRAINING
