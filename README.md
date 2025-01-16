@@ -40,7 +40,7 @@
  ## 👾 프로젝트 설계, 구현 📂 PPT 📂 (ERD, USECASE)
  프로젝트 설계, 구현, PPT
 
- <details> <div align="center">
+ <details>PPT 펼치기 <div align="center">
 
   | ![s1](https://github.com/user-attachments/assets/bd08b5c8-7b85-4df4-a083-43f5cd4056d1) | ![s2](https://github.com/user-attachments/assets/0eb8dac9-9333-4387-b970-d5d1ba826f9f) |
   | :----------: | :----------: |
