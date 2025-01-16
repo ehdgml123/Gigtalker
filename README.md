@@ -27,7 +27,7 @@
 
 ## 🙋‍♀️ 소개
 
- ![KakaoTalk_20250105_111053276](https://github.com/user-attachments/assets/eba648b2-7df0-4534-8c14-4d7c53b9b907)
+<img src="https://github.com/user-attachments/assets/eba648b2-7df0-4534-8c14-4d7c53b9b907" width="200" height="200" />
 
 - LEE DONGHEE <a href="https://github.com/ehdgml123"><img src="https://img.shields.io/badge/GitHub-181717?style=plastic&logo=GitHub&logoColor=white"></a>
 
