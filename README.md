@@ -31,6 +31,9 @@
 
 - LEE DONGHEE <a href="https://github.com/ehdgml123"><img src="https://img.shields.io/badge/GitHub-181717?style=plastic&logo=GitHub&logoColor=white"></a>
 
+ #### front-end
+ <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=HTML5&logoColor=white">
+
 ## 🔧 기술 스택
 - API : `Kakao API`, `google`, `Gmail`, `OpenAI`, `Coolsms`, `iamport`, `KG이니시스`
 - Language : `JAVA(17)`, `JavaScript(1.5)`
