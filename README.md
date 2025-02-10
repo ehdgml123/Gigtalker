@@ -169,7 +169,7 @@
 
    ![Image](https://github.com/user-attachments/assets/53ac6901-5f43-46e5-a277-baabafa50f4c)
 
-   ![Image](https://github.com/user-attachments/assets/7ce5561f-8171-4c2b-a96b-c534fe969086)
+   ![Image](https://github.com/user-attachments/assets/37c36ea7-2f68-4c1b-a1bf-bc9adafb2337)
 
  * **쿠폰발급**
  * 고객센터 에 이벤트 페이지 에 쿠폰코드 가 있다. 그 코드 를 마이페이지 `받은 쿠폰함` 에 들어가 이벤트 페이지 에 있는 쿠폰코드
