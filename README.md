@@ -160,6 +160,17 @@
 
    ![ezgif com-video-to-gif-converter (1)](https://github.com/user-attachments/assets/4b0d6c5c-af17-4a33-b62c-9b7b448c2a65)
 
+ * **FastAPI 서비스 추천(리뷰 많은순서 추천)**
+ * 상품중에 FastAPI를 활용하여 리뷰가 많은 상품을 조회한 후, 메인화면에 추천상품으로 보여준다
+ * 코드 중 리뷰가 많은 상푸을 우선적으로 추천하기 위해 SQL 에서 리뷰 개수를 기반으로 정렬 하며, 상품ID 를 기준으로 데이터를
+   가공하여 추천 시스템에 전달한다.
+ * AJAX 를 이용해 FastAPI 에서 추천된 상품 데이터를 요청한다. 추천 API 는 Json 데이터를 반환하며, 이를 웹 프론트엔드 에서
+   활용한다.
+
+   ![Image](https://github.com/user-attachments/assets/53ac6901-5f43-46e5-a277-baabafa50f4c)
+
+   ![Image](https://github.com/user-attachments/assets/7ce5561f-8171-4c2b-a96b-c534fe969086)
+
  * **쿠폰발급**
  * 고객센터 에 이벤트 페이지 에 쿠폰코드 가 있다. 그 코드 를 마이페이지 `받은 쿠폰함` 에 들어가 이벤트 페이지 에 있는 쿠폰코드
    를 입력하고 일치 하면 받은쿠폰함 에 추가 가 된다.
