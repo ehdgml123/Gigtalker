@@ -51,6 +51,7 @@
 - Language : `JAVA(17)`, `JavaScript(1.5)`
 - Library & Framework : `SpringBoot`, `Thymeleaf`, `SpringAI`, `Spring Date JPA`,`FastAPI`
 - Development Tool : `IntelliJ IDEA`
+- AI : `Numpy`,`Pandas`,`matplotlib`,`FastAPI`,`PyTorch`
 - Database : `Oracle(21g)`
 - Server : `Tomcat`
 - Source Code Management : `Git`
