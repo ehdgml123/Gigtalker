@@ -37,7 +37,7 @@
   (2023년 12월 ~ 2024년 6월)
 
    AI 머신러닝을 활용한 풀스택 개발자_양성<br>
-  (2024년 8월 ~ 교육중)
+  (2024년 8월 ~ 2025년 2월)
   
  #### :pencil:SKILL
  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=HTML5&logoColor=white"><img src="https://img.shields.io/badge/CSS-663399?style=for-the-badge&logo=CSS&logoColor=white"><img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white"><img src="https://img.shields.io/badge/JQuery-0769AD?style=for-the-badge&logo=JQuery&logoColor=white"><img src="https://img.shields.io/badge/Node.js-5FA04E?style=for-the-badge&logo=Node.js&logoColor=white"><br>
